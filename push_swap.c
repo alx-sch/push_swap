@@ -6,31 +6,42 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:55:48 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/05 20:15:07 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/06 15:29:06 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "push_swap.h"
+
+int		ft_printf(const char *format, ...);
+bool	is_int_string(const char *str);
+int		*string_to_int_array(const char	*str);
+int		count_tokens(char **tokens);
+
+
+
 
 int	main(int arg_c, char **arg_v)
 {
-	int	i;
+	int	*int_array;
 
 	if (arg_c < 2)
 	{
-		ft_printf("ERROR - Usage: %s <integer1> <integer2> ...\n", arg_v[0]);
-		return (1);
+		ft_printf("Error\n");
+		exit(EXIT_FAILURE);
 	}
-	ft_printf("Input integers: ");
-
-	i = 1;
-	while (i < arg_c)
+	if (arg_c == 2)
 	{
-		ft_printf("%s ", arg_v[i]);
-		i++;
+		if (!is_int_string(arg_v[1]))
+		{
+			ft_printf("Error\n");
+			exit(EXIT_FAILURE);
+		}
+		else
+		{
+			int_array = string_to_int_array(arg_v[1]);
+			ft_printf("%d\n", int_array[2]);
+		}
 	}
-
-	ft_printf("\n");
-
 	return (0);
 }

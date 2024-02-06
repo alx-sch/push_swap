@@ -6,14 +6,14 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:55:49 by aschenk           #+#    #+#             */
-/*   Updated: 2024/01/27 17:23:04 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/06 14:56:38 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h> // malloc(), free()
+# include <stdlib.h> // malloc(), free(), exit()
 # include <unistd.h> // read()
 # include <stddef.h> // size_t
 # include <stdint.h> // SIZE_MAX
