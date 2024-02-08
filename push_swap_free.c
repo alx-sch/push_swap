@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 19:43:13 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/08 13:06:17 by aschenk          ###   ########.fr       */
+/*   Created: 2024/02/07 17:06:47 by aschenk           #+#    #+#             */
+/*   Updated: 2024/02/07 17:08:39 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft/libft.h"
+#include "push_swap.h"
 
-# include <stdbool.h> // bool
-# include <limits.h> // INT_MAX, etc.
 
-// typedef struct s_list
-// {
-// 	void			value;
-// 	int				index;
-// 	struct s_list	*next;
-// }	t_stack_node;
+void	free_array(char **array)
+{
+	int	i;
 
-// int	push_swap(const char *format, ...);
-
-#endif
+	i = 0;
+	if (!array)
+		return ;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+}

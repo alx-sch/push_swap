@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 15:33:31 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/05 20:23:26 by aschenk          ###   ########.fr       */
+/*   Updated: 2023/11/24 19:14:17 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ It retains characters from the set that appear in the middle of s1 and focuses
 solely on trimming leading and trailing occurrences of characters found in the
 set string.
 
-If s1 is NULL, the function returns NULL. If set is NULL, it duplicates the
-entire string s1. The function then determines the start and end positions
-by skipping characters from the beginning and end of s1 that match those
-in the set string. Finally, it returns a newly allocated substring containing
-the trimmed portion of the original string.
+ If s1 is NULL, the function returns NULL. If set is NULL, it duplicates the
+ entire string s1. The function then determines the start and end positions
+ by skipping characters from the beginning and end of s1 that match those
+ in the set string. Finally, it returns a newly allocated substring containing
+ the trimmed portion of the original string.
 */
 
 #include "libft.h"

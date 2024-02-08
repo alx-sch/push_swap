@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 16:35:35 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/06 14:26:57 by aschenk          ###   ########.fr       */
+/*   Updated: 2023/12/05 11:43:41 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,19 +143,6 @@ char	**ft_split(char const *s, char c)
 /*
 #include <stdio.h>
 
-static void	free_arr(char **array)
-{
-	char	**ptr;
-
-	ptr = array;
-	while (*ptr != NULL)
-	{
-		free (*ptr);
-		ptr++;
-	}
-	free (array);
-}
-
 int	main(void)
 {
 	char	**word_arr;
@@ -168,8 +155,5 @@ int	main(void)
 		printf("%s\n", word_arr[i]);
 		i++;
 	}
-	free_arr(word_arr);
-
-	return (0);
 }
 */
