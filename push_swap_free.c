@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 17:06:47 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/07 17:08:39 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/09 11:28:32 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,14 @@ void	free_array(char **array)
 		i++;
 	}
 	free(array);
+}
+
+int	count_tokens(char **tokens)
+{
+	int	count;
+
+	count = 0;
+	while (tokens[count] != NULL)
+		count++;
+	return (count);
 }

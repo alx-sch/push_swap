@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:56:32 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/08 19:21:29 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/09 13:08:41 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,37 +20,12 @@ int		ft_atoi(const char *nptr);
 
 // push_swap project
 void	free_array(char **array);
-
-
-int	ft_atoi_no_overflow(const char *nptr)
-{
-	int	sign;
-	int	res;
-	int	digit;
-
-	sign = 1;
-	res = 0;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-')
-		sign = sign * -1;
-	if (*nptr == '-' || *nptr == '+')
-		nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
-	{
-		digit = *nptr - '0';
-		if (res > INT_MAX / 10 || (res == INT_MAX / 10 && digit > INT_MAX % 10))
-			return (0);
-		res = res * 10 + *nptr - '0';
-		nptr++;
-	}
-	return (res * sign);
-}
+int		count_tokens(char **tokens);
 
 char	*concatenate_args(int argc, char **argv)
 {
 	char	*concat_str;
-	char	*arg_with_space_str;
+	char	*arg_with_space_added;
 	char	*temp;
 	int		i;
 
@@ -58,15 +33,15 @@ char	*concatenate_args(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		arg_with_space_str = ft_strjoin(argv[i], " ");
-		if (!arg_with_space_str && i != 1)
+		arg_with_space_added = ft_strjoin(argv[i], " ");
+		if (!arg_with_space_added && i != 1)
 		{
 			free(concat_str);
 			return (NULL);
 		}
 		temp = concat_str;
-		concat_str = ft_strjoin(concat_str, arg_with_space_str);
-		free(arg_with_space_str);
+		concat_str = ft_strjoin(concat_str, arg_with_space_added);
+		free(arg_with_space_added);
 		if (i != 1)
 			free(temp);
 		if (!concat_str)
@@ -76,22 +51,50 @@ char	*concatenate_args(int argc, char **argv)
 	return (concat_str);
 }
 
-static bool	has_only_digits_after_sign(const char *str)
+static bool	has_only_digits_after_sign(const char *token)
 {
-	if (!((*str >= '0' && *str <= '9') || *str == '-' || *str == '+'))
+	if (!((*token >= '0' && *token <= '9') || *token == '-' || *token == '+'))
 		return (false);
-	str++;
-	while (*str)
+	token++;
+	while (*token)
 	{
-		if (!(*str >= '0' && *str <= '9'))
+		if (!(*token >= '0' && *token <= '9'))
 			return (false);
-		str++;
+		token++;
 	}
 	return (true);
 }
 
+bool	is_int_overflow(const char *token)
+{
+	int	sign;
+	int	int_value;
+	int	digit;
 
-bool	is_valid_args(const char *str)
+	sign = 1;
+	int_value = 0;
+	if (*token == '-')
+	{
+		sign = -1;
+		token++;
+	}
+	else if (*token == '+')
+		token++;
+	while (*token >= '0' && *token <= '9')
+	{
+		digit = *token - '0';
+		if ((sign == 1 && (int_value > INT_MAX / 10
+					|| (int_value == INT_MAX / 10 && digit > INT_MAX % 10)))
+			|| (sign == -1 && (int_value > INT_MAX / 10
+					|| (int_value == INT_MAX / 10 && digit > -(INT_MIN % 10)))))
+			return (true);
+		int_value = int_value * 10 + digit;
+		token++;
+	}
+	return (false);
+}
+
+bool	is_valid_arg_input(const char *str)
 {
 	char	**tokens;
 	int		i;
@@ -105,7 +108,8 @@ bool	is_valid_args(const char *str)
 	{
 		int_value = ft_atoi(tokens[i]);
 		if ((int_value == 0 && *tokens[i] != '0')
-			|| !has_only_digits_after_sign(tokens[i]))
+			|| !has_only_digits_after_sign(tokens[i])
+			|| is_int_overflow(tokens[i]))
 		{
 			free_array(tokens);
 			return (false);
@@ -124,12 +128,10 @@ int	*return_int_array(char *str)
 	int		*int_array;
 
 	tokens = ft_split(str, ' ');
-	num_tokens = 0;
 	i = 0;
 	if (!tokens)
 		return (NULL);
-	while (tokens[num_tokens])
-		num_tokens++;
+	num_tokens = count_tokens(tokens);
 	int_array = (int *)ft_calloc(num_tokens, sizeof(int));
 	if (!int_array)
 	{
@@ -138,14 +140,41 @@ int	*return_int_array(char *str)
 	}
 	while (i < num_tokens)
 	{
-		#add overflow check -> retunr (NULL);
-
 		int_array[i] = ft_atoi(tokens[i]);
 		i++;
 	}
 	free_array(tokens);
 	return (int_array);
 }
+
+
+
+bool	has_duplicates(int **array)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (array[i])
+	{
+		j = i + 1;
+		while (array[j])
+		{
+			if (ft_strncmp(array[i], array[j], ft_strlen(array[i])) == 0)
+				return (true);
+			j++;
+		}
+		i++;
+	}
+	return (false);
+}
+
+
+
+
+
+
+
 
 
 
@@ -234,18 +263,6 @@ int	*return_int_array(char *str)
 // }
 
 
-
-
-int	count_tokens(char **tokens)
-{
-	int	count;
-
-	count = 0;
-	while (tokens[count] != NULL)
-		count++;
-	return (count);
-}
-
 int	*string_to_int_array(const char	*str)
 {
 	char	**tokens;
@@ -278,7 +295,7 @@ int	*argv_to_int_array(int arg_c, char **arg_v)
 		exit(EXIT_FAILURE);
 	while (i <= arg_c)
 	{
-		if (!is_valid_args(arg_v[i]))
+		if (!is_valid_arg_input(arg_v[i]))
 		{
 			free(int_arr);
 			exit(EXIT_FAILURE);
@@ -287,4 +304,22 @@ int	*argv_to_int_array(int arg_c, char **arg_v)
 		i++;
 	}
 	return (int_arr);
+}
+
+
+int	main(int argc, char **argv)
+{
+	char	*concatenated_str;
+
+	if (argc < 2)
+		return (1);
+
+	concatenated_str = concatenate_args(argc, argv);
+	if (!concatenated_str)
+		return (1);
+
+	ft_printf("Concatenated arguments: %s\n", concatenated_str);
+
+	free(concatenated_str);
+	return (0);
 }

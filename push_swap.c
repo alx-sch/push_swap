@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:55:48 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/08 19:08:35 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/09 11:36:57 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,17 @@
 
 int		ft_printf(const char *format, ...);
 char	*concatenate_args(int argc, char **argv);
-bool	is_valid_args(const char *str);
+bool	is_valid_arg_input(const char *str);
 int		*return_int_array(char *str);
 
 
 // bool	is_int_string(const char *str);
 // int		ft_strncmp(const char *s1, const char *s2, size_t n);
 // size_t	ft_strlen(const char *str);
-// //int		count_tokens(char **tokens);
 // int		*string_to_int_array(const char	*str);
 // int		*argv_to_int_array(int arg_c, char **arg_v);
 // void	free_array(char **array);
 
-
-bool	has_duplicates(char **array)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (array[i])
-	{
-		j = i + 1;
-		while (array[j])
-		{
-			if (ft_strncmp(array[i], array[j], ft_strlen(array[i])) == 0)
-				return (true);
-			j++;
-		}
-		i++;
-	}
-	return (false);
-}
 
 #include <stdio.h>
 
@@ -75,7 +54,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	if (!is_valid_args(input_str))
+	if (!is_valid_arg_input(input_str))
 	{
 		ft_printf("Error\n");
 		free(input_str);
