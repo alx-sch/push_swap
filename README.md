@@ -15,7 +15,7 @@ Valid input for the push_swap program:
 -	Leading zeroes before numbers are allowed.
 
 Examples of valid input:
--	`./push_swap 42 -2 +0'`
+-	`./push_swap 42 -2 +0`
 -	`./push_swap 1 "42 -2" 2 "5 6"`
 -	`./push_swap 00042 -05`
 
