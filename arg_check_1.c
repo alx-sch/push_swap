@@ -6,21 +6,18 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:56:32 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/09 20:53:27 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:02:04 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //	This file implements a function for validating a string representing
 //	integer values and contains helper functions for this purpose.
-//	Also implements a function to concatenate all provided command-line
-//	arguments into a singl string.
 
 #include "libft/libft.h"
 #include "push_swap.h" // bool, INT_MAX, INT_MIN
 
 //	FILE
 bool	is_valid_int_str(const char *str);
-char	*concatenate_args(int argc, char **argv);
 
 //	libft
 char	**ft_split(char const *s, char c);
@@ -133,35 +130,4 @@ bool	is_valid_int_str(const char *str)
 	}
 	free_arr(tokens);
 	return (true);
-}
-
-//	Concatenates all command-line arguments provided as input
-//	into a single string separated by spaces.
-char	*concatenate_args(int argc, char **argv)
-{
-	char	*concat_str;
-	char	*arg_with_space_added;
-	char	*temp;
-	int		i;
-
-	concat_str = "";
-	i = 1;
-	while (i < argc)
-	{
-		arg_with_space_added = ft_strjoin(argv[i], " ");
-		if (!arg_with_space_added && i != 1)
-		{
-			free(concat_str);
-			return (NULL);
-		}
-		temp = concat_str;
-		concat_str = ft_strjoin(concat_str, arg_with_space_added);
-		free(arg_with_space_added);
-		if (i != 1)
-			free(temp);
-		if (!concat_str)
-			return (NULL);
-		i++;
-	}
-	return (concat_str);
 }
