@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:49:02 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/10 16:01:22 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:47:36 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 //
 //	Invalid input:
 //	-	Floats or non-integer numeric values (e.g. "4.2" or "2147483650")
-//	-	Special characters or symbols
+//	-	Characters, symbols, or more than one sign (e.g. "e!", "++42").
 //	-	Duplicates (e.g. ./push_swap 00042 +42)
 //	-	Incorrectly formatted numbers (e.g., "1a" or "42-").
 
@@ -40,6 +40,7 @@
 int		*check_args(int argc, char **argv);
 
 //	libft
+char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *nptr);
 int		ft_printf(const char *format, ...);
@@ -87,10 +88,10 @@ static char	*concatenate_args(int argc, char **argv)
 }
 
 //	Parses a string representing integer values into an array of integers.
-static int	*parse_str_to_int_arr(const char *str, int num_tokens)
+static int	*parse_str_to_int_arr(const char *str, size_t num_tokens)
 {
 	char	**tokens;
-	int		i;
+	size_t	i;
 	int		*int_array;
 
 	tokens = ft_split(str, ' ');
@@ -113,10 +114,10 @@ static int	*parse_str_to_int_arr(const char *str, int num_tokens)
 }
 
 //	Checks if there are any duplicates in an array of integers.
-static bool	has_duplicates(int *array, int length)
+static bool	has_duplicates(int *array, size_t length)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	if (!array || length <= 0)
@@ -175,7 +176,7 @@ static char	*check_args_pre(int argc, char **argv)
 int	*check_args(int argc, char **argv)
 {
 	char	*arg_str;
-	int		num_tokens;
+	size_t	num_tokens;
 	int		*int_arr;
 
 	arg_str = check_args_pre(argc, argv);

@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:56:32 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/10 16:02:04 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/11 19:58:40 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ bool	is_valid_int_str(const char *str);
 //	libft
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *nptr);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_strjoin(char const *s1, char const *s2);
 
 //	utils.c
 void	free_arr(char **array);
@@ -109,7 +107,7 @@ static bool	is_zero(const char *token)
 bool	is_valid_int_str(const char *str)
 {
 	char	**tokens;
-	int		i;
+	size_t	i;
 	int		int_value;
 
 	tokens = ft_split(str, ' ');

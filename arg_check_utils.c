@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   arg_check_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 17:06:47 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/09 18:59:38 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/11 20:00:30 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**ft_split(char const *s, char c);
 // Frees the memory allocated for an array of strings.
 void	free_arr(char **array)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (!array)
@@ -31,27 +31,18 @@ void	free_arr(char **array)
 	free(array);
 }
 
-// Returns the number of tokens in an array of strings.
-int	count_tokens(char **tokens)
-{
-	int	count;
-
-	count = 0;
-	while (tokens[count] != NULL)
-		count++;
-
-	return (count);
-}
-
 // Returns the number of tokens (separated by spaces) in a string.
 int	count_tokens_in_str(char *string)
 {
-	int		num_tokens;
-	char	**tokens;
+	size_t		num_tokens;
+	char		**tokens;
 
+	num_tokens = 0;
 	tokens = ft_split(string, ' ');
-	num_tokens = count_tokens(tokens);
+	if (!tokens)
+		return (num_tokens);
+	while (tokens[num_tokens] != NULL)
+		num_tokens++;
 	free_arr(tokens);
-
 	return (num_tokens);
 }
