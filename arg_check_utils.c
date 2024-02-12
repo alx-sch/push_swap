@@ -6,11 +6,11 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 17:06:47 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/12 12:50:07 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/12 13:10:10 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h" // exit()
+#include "libft/libft.h"
 
 // libft
 char	**ft_split(char const *s, char c);
@@ -48,6 +48,8 @@ int	count_tokens_in_str(char *string)
 	return (num_tokens);
 }
 
+// Prints error message and terminates program.
+// Exit code retrievable via 'echo $?'.
 void	exit_with_message(int exit_code, const char *error_message)
 {
 	ft_printf("%s", error_message);
