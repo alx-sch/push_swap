@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:49:02 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/12 11:06:01 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/12 13:03:44 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 //	-	Incorrectly formatted numbers (e.g., "1a" or "42-").
 
 #include "libft/libft.h"
-#include "push_swap.h" // bool, error code
+#include "push_swap.h" // bool, exit codes
 
 //	FILE
 int		*check_args(int argc, char **argv);
@@ -43,11 +43,11 @@ int		*check_args(int argc, char **argv);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *nptr);
-int		ft_printf(const char *format, ...);
 
 //	utils.c
 void	free_arr(char **array);
 int		count_tokens_in_str(char *string);
+void	exit_with_message(int exit_code, const char *error_message);
 
 //	arg_check_1.c
 bool	is_valid_int_str(const char *str);
@@ -140,27 +140,21 @@ static bool	has_duplicates(int *array, size_t length)
 //	Prints error message if check fails.
 //	Returns:
 //	-	A string containing concatenated arguments if valid.
-//	-	NULL otherwise.
+//	-	Otherwise, prints error message and terminates program
+//		with specified exit code.
 static char	*check_args_pre(int argc, char **argv)
 {
 	char	*arg_str;
 
 	if (argc < 2)
-	{
-		ft_printf("Error\n");
-		exit(1);
-	}
+		exit_with_message(EXIT_NO_ARGS, "Error\n");
 	arg_str = concatenate_args(argc, argv);
 	if (!arg_str)
-	{
-		ft_printf("Error\n");
-		exit(2);
-	}
+		exit_with_message(EXIT_MALLOC_FAILURE, "Error\n");
 	if (!is_valid_int_str(arg_str))
 	{
-		ft_printf("Error\n");
 		free(arg_str);
-		exit(3);
+		exit_with_message(EXIT_INVALID_INT_INPUT, "Error\n");
 	}
 	return (arg_str);
 }
@@ -172,7 +166,8 @@ static char	*check_args_pre(int argc, char **argv)
 //	Returns:
 //	-	An integer array containing the validated arguments if
 //		the validation is successful.
-//	-	NULL if the validation fails.
+//	-	Otherwise, prints error message and terminates program
+//		with specified exit code.
 int	*check_args(int argc, char **argv)
 {
 	char	*arg_str;
@@ -180,16 +175,15 @@ int	*check_args(int argc, char **argv)
 	int		*int_arr;
 
 	arg_str = check_args_pre(argc, argv);
-	if (!arg_str)
-		exit(EXIT_FAILURE);
 	num_tokens = count_tokens_in_str(arg_str);
 	int_arr = parse_str_to_int_arr(arg_str, num_tokens);
 	free(arg_str);
-	if (!int_arr || has_duplicates(int_arr, num_tokens))
+	if (!int_arr)
+		exit_with_message(EXIT_MALLOC_FAILURE, "Error\n");
+	if (has_duplicates(int_arr, num_tokens))
 	{
-		ft_printf("Error\n");
 		free(int_arr);
-		exit(EXIT_FAILURE);
+		exit_with_message(EXIT_DUPLICATES, "Error\n");
 	}
 	return (int_arr);
 }

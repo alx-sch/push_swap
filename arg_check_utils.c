@@ -6,14 +6,15 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 17:06:47 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/12 10:55:24 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/12 12:50:07 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft/libft.h" // exit()
 
 // libft
 char	**ft_split(char const *s, char c);
+int		ft_printf(const char *format, ...);
 
 // Frees the memory allocated for an array of strings.
 void	free_arr(char **array)
@@ -47,8 +48,8 @@ int	count_tokens_in_str(char *string)
 	return (num_tokens);
 }
 
-
-// void	exit_with_message(int exit_code, const char *errorMessage) {
-//     fprintf(stderr, "Error: %s\n", errorMessage);
-//     exit(exitCode);
-// }
+void	exit_with_message(int exit_code, const char *error_message)
+{
+	ft_printf("%s", error_message);
+	exit(exit_code);
+}
