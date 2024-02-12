@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:49:02 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/11 19:47:36 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/12 11:06:01 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 //	-	Incorrectly formatted numbers (e.g., "1a" or "42-").
 
 #include "libft/libft.h"
-#include "push_swap.h" // bool
+#include "push_swap.h" // bool, error code
 
 //	FILE
 int		*check_args(int argc, char **argv);
@@ -148,19 +148,19 @@ static char	*check_args_pre(int argc, char **argv)
 	if (argc < 2)
 	{
 		ft_printf("Error\n");
-		return (NULL);
+		exit(1);
 	}
 	arg_str = concatenate_args(argc, argv);
 	if (!arg_str)
 	{
 		ft_printf("Error\n");
-		return (NULL);
+		exit(2);
 	}
 	if (!is_valid_int_str(arg_str))
 	{
 		ft_printf("Error\n");
 		free(arg_str);
-		return (NULL);
+		exit(3);
 	}
 	return (arg_str);
 }
@@ -181,7 +181,7 @@ int	*check_args(int argc, char **argv)
 
 	arg_str = check_args_pre(argc, argv);
 	if (!arg_str)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	num_tokens = count_tokens_in_str(arg_str);
 	int_arr = parse_str_to_int_arr(arg_str, num_tokens);
 	free(arg_str);
@@ -189,7 +189,7 @@ int	*check_args(int argc, char **argv)
 	{
 		ft_printf("Error\n");
 		free(int_arr);
-		return (NULL);
+		exit(EXIT_FAILURE);
 	}
 	return (int_arr);
 }
