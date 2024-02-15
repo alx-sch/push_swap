@@ -6,12 +6,12 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:49:02 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/13 09:33:28 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/15 14:53:58 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //	This file implements a function for validating command-line arguments,
-//	ensuring they represent valid integer values without duplicates.
+//	ensuring they represent val   id integer values without duplicates.
 //	It returns an integer array of arguments if the validation is successful.
 //
 //	Valid input for the push_swap program:

@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:43:13 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/12 12:51:36 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/15 19:40:12 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,18 @@
 # include <stdbool.h> // bool
 # include <limits.h> // INT_MAX, etc.
 
-// typedef struct s_list
-// {
-// 	void			value;
-// 	int				index;
-// 	struct s_list	*next;
-// }	t_stack_node;
+typedef struct s_stacks
+{
+	int		*stack_a;
+	int		*stack_b;
+	int		*stack_tmp;
+	size_t	size_a;
+	size_t	size_b;
+	int		*b_target;
+	int		*cost_a;
+	int		*cost_b;
+}	t_stacks;
+
 
 // int	push_swap(const char *format, ...);
 

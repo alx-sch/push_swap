@@ -6,12 +6,12 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:33:08 by aschenk           #+#    #+#             */
-/*   Updated: 2023/11/24 19:23:47 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/15 14:14:47 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-The purpose of this function is straightforward: to copy one string to another
+The purpo  se of this function is straightforward: to copy one string to another
 while ensuring the destination string is always NUL-terminated. If you provide
 a 'size' large enough to accommodate the entire string without truncation,
 strlcpy() behaves like strcpy() and simply copies the entire string.
