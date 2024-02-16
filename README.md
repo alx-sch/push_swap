@@ -24,3 +24,9 @@ Invalid input:
 -	Special characters, symbols, or more than one sign (e.g. "++42").
 -	Duplicates (e.g. `./push_swap 00042 +42`).
 -	Incorrectly formatted numbers (e.g., "1a" or "42-").
+
+Struct
+
+In computer programming, a struct (short for "structure") is a composite data type that groups together a collection of variables under a single name for easier manipulation. Structs are commonly used in languages like C, C++, C#, and many others.
+
+Structs allow you to define your own custom data types by specifying different types of variables and grouping them together. Each variable within a struct is called a member or field. These members can be of any data type, including primitive types like integers or floats, or even other structs.
