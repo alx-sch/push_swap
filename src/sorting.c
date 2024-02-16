@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 19:43:13 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/16 17:04:21 by aschenk          ###   ########.fr       */
+/*   Created: 2024/02/16 13:20:37 by aschenk           #+#    #+#             */
+/*   Updated: 2024/02/16 17:32:26 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft/libft.h"
+#include "push_swap.h"
 
-// exit codes
-# define EXIT_SUCCESS 0
-# define EXIT_NO_ARGS 1
-# define EXIT_MALLOC_FAILURE 2
-# define EXIT_INVALID_INT_INPUT 3
-# define EXIT_DUPLICATES 4
+// FILE
+bool	is_sorted(int	*array, size_t size);
 
-# include <stdbool.h> // bool
-# include <limits.h> // INT_MAX, etc.
+//	+++++++++++++++
+//	++ FUNCTIONS ++
+//	+++++++++++++++
 
-typedef struct s_stacks
+// Checks if an array of integers is sorted from smalles to largest.
+bool	is_sorted(int	*array, size_t size)
 {
-	size_t	size_a;
-	size_t	size_b;
-	int		*stack_a;
-	int		*stack_b;
-	int		*cost_a;
-	int		*cost_b;
-}	t_stacks;
+	size_t	i;
 
-#endif
+	i = 0;
+	while (i < size - 1)
+	{
+		if (array[i] > array[i + 1])
+			return (false);
+		i++;
+	}
+	return (true);
+}

@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:42:43 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/15 19:12:01 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/16 17:32:19 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ void	rrr(t_stacks *stacks);
 
 // libft
 int		ft_printf(const char *format, ...);
+
+//	+++++++++++++++
+//	++ FUNCTIONS ++
+//	+++++++++++++++
 
 // swap a & b at the same time
 // Swap the first 2 elements at the top of both stacks.
@@ -43,31 +47,50 @@ void	ss(t_stacks *stacks)
 	}
 }
 
+// Helper fct for rr() (to keep the line limit)
+static void	rotate_stack(int *stack, size_t size)
+{
+	int		temp;
+	size_t	i;
+
+	if (size < 2)
+		return ;
+	temp = stack[0];
+	i = 0;
+	while (i < size - 1)
+	{
+		stack[i] = stack[i + 1];
+		i++;
+	}
+	stack[size - 1] = temp;
+}
+
 // rotate a & b at the same time
 // Shift up all elements of both stacks by 1.
 // The first elements become the last ones.
 void	rr(t_stacks *stacks)
 {
+	ft_printf("rr\n");
+	rotate_stack(stacks->stack_a, stacks->size_a);
+	rotate_stack(stacks->stack_b, stacks->size_b);
+}
+
+// Helper fct for rrr() (to keep the line limit)
+static void	r_rotate_stack(int *stack, size_t size)
+{
 	int		temp;
 	size_t	i;
 
-	i = 0;
-	temp = stacks->stack_a[0];
-	ft_printf("rr\n");
-	while (i < stacks->size_a - 1)
+	if (size < 2)
+		return ;
+	temp = stack[size - 1];
+	i = size - 1;
+	while (i > 0)
 	{
-		stacks->stack_a[i] = stacks->stack_a[i + 1];
-		i++;
+		stack[i] = stack[i - 1];
+		i--;
 	}
-	stacks->stack_a[stacks->size_a - 1] = temp;
-	i = 0;
-	temp = stacks->stack_b[0];
-	while (i < stacks->size_b - 1)
-	{
-		stacks->stack_b[i] = stacks->stack_b[i + 1];
-		i++;
-	}
-	stacks->stack_b[stacks->size_b - 1] = temp;
+	stack[0] = temp;
 }
 
 // reverse rotate a & b
@@ -75,24 +98,7 @@ void	rr(t_stacks *stacks)
 // The last elements become the first ones.
 void	rrr(t_stacks *stacks)
 {
-	int		temp;
-	size_t	i;
-
-	temp = stacks->stack_a[stacks->size_a - 1];
-	i = stacks->size_a - 1;
 	ft_printf("rrr\n");
-	while (i > 0)
-	{
-		stacks->stack_a[i] = stacks->stack_a[i - 1];
-		i--;
-	}
-	stacks->stack_a[0] = temp;
-	temp = stacks->stack_b[stacks->size_b - 1];
-	i = stacks->size_b - 1;
-	while (i > 0)
-	{
-		stacks->stack_b[i] = stacks->stack_b[i - 1];
-		i--;
-	}
-	stacks->stack_b[0] = temp;
+	r_rotate_stack(stacks->stack_a, stacks->size_a);
+	r_rotate_stack(stacks->stack_b, stacks->size_b);
 }

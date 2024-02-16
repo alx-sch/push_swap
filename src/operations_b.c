@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:42:43 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/15 18:44:00 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/16 16:45:29 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ void	rrb(t_stacks *stacks);
 
 // libft
 int		ft_printf(const char *format, ...);
+
+//	+++++++++++++++
+//	++ FUNCTIONS ++
+//	+++++++++++++++
 
 // swap b
 // Swap the first 2 elements at the top of stack b.
@@ -73,8 +77,10 @@ void	rb(t_stacks *stacks)
 	size_t	i;
 
 	i = 0;
-	temp = stacks->stack_b[0];
 	ft_printf("rb\n");
+	if (stacks->size_b <= 1)
+		return ;
+	temp = stacks->stack_b[0];
 	while (i < stacks->size_b - 1)
 	{
 		stacks->stack_b[i] = stacks->stack_b[i + 1];
@@ -91,9 +97,11 @@ void	rrb(t_stacks *stacks)
 	int		temp;
 	size_t	i;
 
-	temp = stacks->stack_b[stacks->size_b - 1];
 	i = stacks->size_b - 1;
 	ft_printf("rrb\n");
+	if (stacks->size_b <= 1)
+		return ;
+	temp = stacks->stack_b[stacks->size_b - 1];
 	while (i > 0)
 	{
 		stacks->stack_b[i] = stacks->stack_b[i - 1];

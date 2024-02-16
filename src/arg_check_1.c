@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:56:32 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/15 19:39:51 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/16 17:32:00 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 //	integer values and contains helper functions for this purpose.
 
 #include "libft/libft.h"
-#include "push_swap.h" // bool, INT_MAX, INT_MIN
+#include "push_swap.h"
 
 //	FILE
 bool	is_valid_int_str(const char *str);
