@@ -5,6 +5,16 @@
       alt="libft" />
 </p>
 
+The push_swap project is a sorting algorithm implementation designed to sort numbers with minimal moves using two stacks and a fixed set of instructions (push, swap, rotate). The program takes an unordered stack of integers as input and outputs a series of instructions to sort that stack in ascending order.
+
+## Features
+- **Robust Input Validation:** Validates user input for correctness, accepting various representations of integer sequences to ensure robustness.
+- **Instruction Set:** Utilization of a fixed set of stack operations including push, swap, and rotate to manipulate the stacks during sorting.
+- **Sorting Approach:** Experimenting with different sorting techniques while adhering to the specified rules.
+- **Validation Checker:** Implementation of a program to confirm the correctness of push_swap's sorting outputs.
+
+########
+
 -- Current version (2024/2/10): push_swap handles argument input and memory allocation correctly; NO sorting (rules) whatsoever though.
 
 Valid input for the push_swap program:
