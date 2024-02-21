@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:55:48 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/21 20:31:42 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 21:48:05 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,48 @@
 
 // stacks.c
 void	check_args_init_stacks(int argc, char **argv, t_stacks *stacks);
+void	exit_free_stacks(int exit_code, char *error_message, t_stacks *stacks);
 
 // sorting.c
 bool	is_stack_sorted(const t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
+void	sort_more_than_three(t_stacks *stacks);
 
 // opertions.c
 void	sa(t_stacks *stacks);
 
-// utils.c
-void	exit_free_stacks(int exit_code, const char *error_message,
-			t_stacks *stacks);
-
 //	+++++++++++++
 //	++ PROGRAM ++
 //	+++++++++++++
+
+void	print_stacks(t_stacks *stacks)
+{
+	size_t	i;
+
+	i = 0;
+	ft_printf("Stack A: ");
+	while (i < stacks->size_a)
+	{
+		ft_printf("%d ", stacks->stack_a[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nStack B: ");
+	while (i < stacks->size_b)
+	{
+		ft_printf("%d ", stacks->stack_b[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nTarget for A in B: ");
+	while (i < stacks->size_a)
+	{
+		ft_printf("%d ", stacks->target[i]);
+		i++;
+	}
+	ft_printf("\n\n");
+}
+
 
 int	main(int argc, char **argv)
 {
@@ -48,7 +75,10 @@ int	main(int argc, char **argv)
 			sa(stacks);
 		else if (stacks->size_a == 3)
 			sort_three(stacks);
+		else
+			sort_more_than_three(stacks);
 	}
+	print_stacks(stacks);
 	exit_free_stacks(EXIT_SUCCESS, "", stacks);
 }
 

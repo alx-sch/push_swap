@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:26:16 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/21 20:32:29 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 21:25:34 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,13 @@
 
 // FILE
 void	check_args_init_stacks(int argc, char **argv, t_stacks *stacks);
+void	exit_free_stacks(int exit_code, char *error_message, t_stacks *stacks);
 
 // arg_check_2.c
-int		*check_and_get_args(int argc, char **argv,
-			t_stacks *stacks);
-
-// sorting.c
-
+int		*check_and_get_args(int argc, char **argv, t_stacks *stacks);
 
 // utils.c
 int		count_args(int argc, char **argv);
-void	exit_free_stacks(int exit_code, const char *error_message,
-			t_stacks *stacks);
 
 // libft
 void	*ft_calloc(size_t nmemb, size_t size);
@@ -37,6 +32,22 @@ void	*ft_calloc(size_t nmemb, size_t size);
 //	+++++++++++++++
 //	++ FUNCTIONS ++
 //	+++++++++++++++
+
+// Frees memory for a t_stacks structure including its members.
+// Prints error message and terminates program.
+// Exit code retrievable via 'echo $?' in terminal.
+void	exit_free_stacks(int exit_code, char *error_message, t_stacks *stacks)
+{
+	free(stacks->stack_a);
+	free(stacks->stack_b);
+	free(stacks->target);
+	free(stacks->cost_a);
+	free(stacks->cost_b);
+	free(stacks);
+	ft_printf("%s", error_message);
+	exit(exit_code);
+}
+
 
 // Initializes the t_stacks structure with appropriate memory allocation and
 // copies elements from the provided int array into stack_a.

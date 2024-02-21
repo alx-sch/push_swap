@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:42:43 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/16 17:32:19 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 22:02:20 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_printf(const char *format, ...);
 //	++ FUNCTIONS ++
 //	+++++++++++++++
 
-// swap a & b at the same time
+// Swap A & B at the same time
 // Swap the first 2 elements at the top of both stacks.
 // Do nothing if there is only one or no elements.
 void	ss(t_stacks *stacks)
@@ -65,7 +65,7 @@ static void	rotate_stack(int *stack, size_t size)
 	stack[size - 1] = temp;
 }
 
-// rotate a & b at the same time
+// Rotate A & B at the same time
 // Shift up all elements of both stacks by 1.
 // The first elements become the last ones.
 void	rr(t_stacks *stacks)
@@ -93,7 +93,7 @@ static void	r_rotate_stack(int *stack, size_t size)
 	stack[0] = temp;
 }
 
-// reverse rotate a & b
+// Reverse Rotate A & B
 // Shift down all elements of both stacks by 1.
 // The last elements become the first ones.
 void	rrr(t_stacks *stacks)

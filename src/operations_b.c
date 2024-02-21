@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:42:43 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/16 16:45:29 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 22:01:52 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int		ft_printf(const char *format, ...);
 //	++ FUNCTIONS ++
 //	+++++++++++++++
 
-// swap b
-// Swap the first 2 elements at the top of stack b.
+// Swap B
+// Swap the first 2 elements at the top of 'stack B'.
 // Do nothing if there is only one or no elements.
 void	sb(t_stacks *stacks)
 {
@@ -41,8 +41,8 @@ void	sb(t_stacks *stacks)
 	stacks->stack_b[0] = temp;
 }
 
-// push b
-// Take the first element at the top of a and put it at the top of b.
+// Push B
+// Take the first element at the top of 'A' and put it at the top of 'B'.
 // Do nothing if a is empty.
 void	pb(t_stacks *stacks)
 {
@@ -68,8 +68,8 @@ void	pb(t_stacks *stacks)
 	stacks->size_a--;
 }
 
-// rotate b
-// Shift up all elements of stack b by 1.
+// Rotate B
+// Shift up all elements of 'stack B' by 1.
 // The first element becomes the last one.
 void	rb(t_stacks *stacks)
 {
@@ -89,8 +89,8 @@ void	rb(t_stacks *stacks)
 	stacks->stack_b[stacks->size_b - 1] = temp;
 }
 
-// reverse rotate b
-// Shift down all elements of stack b by 1.
+// Reverse Rotate B
+// Shift down all elements of 'stack B' by 1.
 // The last element becomes the first one.
 void	rrb(t_stacks *stacks)
 {
