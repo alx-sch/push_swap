@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:20:37 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/21 21:58:42 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 23:41:55 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,18 @@
 bool	is_stack_sorted(const t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
 
-// operations_a.c
+// sorting_utils.c
+void	find_target_a(t_stacks *stacks);
+
+// stacks.c
+int		find_max_val(const t_stacks *stacks, char x);
+
+// moves_a.c
 void	sa(t_stacks *stacks);
 void	ra(t_stacks *stacks);
 void	rra(t_stacks *stacks);
 
-// operations_b.c
+// moves_b.c
 void	pb(t_stacks *stacks);
 
 // utils.c
@@ -48,39 +54,6 @@ bool	is_stack_sorted(const t_stacks *stacks)
 	return (true);
 }
 
-// Returns the maximum value in the specified stack.
-// Parameters:
-//	- stacks: Pointer to the t_stacks structure containing the stack data.
-//	- x: Specifies the stack to search ('a' for stack_a,
-//		 'b' (or anything else) for stack_b).
-static int	find_max_in_stack(const t_stacks *stacks, char x)
-{
-	int			max;
-	size_t		i;
-	int			*stack_x;
-	size_t		size_x;
-
-	max = INT_MIN;
-	i = 0;
-	if (x == 'a')
-	{
-		stack_x = stacks->stack_a;
-		size_x = stacks->size_a;
-	}
-	else
-	{
-		stack_x = stacks->stack_b;
-		size_x = stacks->size_b;
-	}
-	while (i < size_x)
-	{
-		if (stack_x[i] > max)
-			max = stack_x[i];
-		i++;
-	}
-	return (max);
-}
-
 // Sorts 'stack A' with a size of three in ascending order.
 // First, it rotates the largest element to the bottom if it's not already in
 // that position. Then, it swaps the top two elements, if top > middle.
@@ -88,7 +61,7 @@ void	sort_three(t_stacks *stacks)
 {
 	int	max_value;
 
-	max_value = find_max_in_stack(stacks, 'a');
+	max_value = find_max_val(stacks, 'a');
 	if (stacks->stack_a[0] == max_value)
 		ra(stacks);
 	else if (stacks->stack_a[1] == max_value)
@@ -97,42 +70,13 @@ void	sort_three(t_stacks *stacks)
 		sa(stacks);
 }
 
-// Finds a target in 'stack B' for each element in 'stack A'. It searches for a
-// target that is closest but smaller than the 'stack A' element. If no suitable
-// target is found, it selects the max. value from 'stack B' as the target.
-void	set_target_a(t_stacks *stacks)
-{
-	size_t	i;
-	size_t	j;
-	int		target;
-
-	i = 0;
-	while (i < stacks->size_a)
-	{
-		target = INT_MIN;
-		j = 0;
-		while (j < stacks->size_b)
-		{
-			if (stacks->stack_b[j] < stacks->stack_a[i]
-				&& stacks->stack_b[j] > target)
-				target = stacks->stack_b[j];
-			j++;
-		}
-		if (target == INT_MIN)
-			stacks->target[i] = find_max_in_stack(stacks, 'b');
-		else
-			stacks->target[i] = target;
-		i++;
-	}
-}
-
 void	sort_more_than_three(t_stacks *stacks)
 {
 	if (stacks->size_a > 3)
 		pb(stacks);
 	if (stacks->size_a > 3)
 		pb(stacks);
-	set_target_a(stacks);
+	find_target_a(stacks);
 	//while (stacks->size_a > 3)
 }
 

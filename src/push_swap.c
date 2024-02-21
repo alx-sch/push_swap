@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:55:48 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/21 21:48:05 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 23:52:07 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	is_stack_sorted(const t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
 void	sort_more_than_three(t_stacks *stacks);
 
-// opertions.c
+// moves_a.c
 void	sa(t_stacks *stacks);
 
 //	+++++++++++++
@@ -51,13 +51,13 @@ void	print_stacks(t_stacks *stacks)
 	ft_printf("\nTarget for A in B: ");
 	while (i < stacks->size_a)
 	{
-		ft_printf("%d ", stacks->target[i]);
+		ft_printf("%d ", stacks->target_a[i]);
 		i++;
 	}
 	ft_printf("\n\n");
 }
 
-
+#include <stdio.h>
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
@@ -83,9 +83,9 @@ int	main(int argc, char **argv)
 }
 
 /*
-// TESTING OPERATIONS
+// TESTING MOVES
 
-// operations_a.c
+// moves_a.c
 void	sa(t_stacks *stacks);
 void	pa(t_stacks *stacks);
 void	ra(t_stacks *stacks);
@@ -127,7 +127,7 @@ int	main(int argc, char **argv)
 	stacks = ft_calloc(1, sizeof(t_stacks));
 	check_args_init_stacks(argc, argv, stacks);
 
-	/// TESTING OPERATIONS
+	/// TESTING MOVES
 	print_stacks(stacks);
 
 	sa(stacks);
