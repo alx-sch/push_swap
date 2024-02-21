@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 16:35:35 by aschenk           #+#    #+#             */
-/*   Updated: 2023/12/05 11:43:41 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 21:03:11 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ word_arr is set to NULL, indicating the end of the array.
 
 #include "libft.h"
 
-static size_t	ft_count_words(char const *str, char delim)
+static size_t	ft_count_words(const char *str, char delim)
 {
 	size_t	count;
 	size_t	i;
@@ -71,7 +71,7 @@ static size_t	ft_count_words(char const *str, char delim)
 	return (count);
 }
 
-static char	*ft_extract_word(char const *str, char delim)
+static char	*ft_extract_word(const char *str, char delim)
 {
 	char	*word;
 	int		i;
@@ -94,7 +94,7 @@ static char	*ft_extract_word(char const *str, char delim)
 }
 
 static char	*ft_word_into_array(
-	char const *str, char delim,
+	const char *str, char delim,
 	size_t i, char **arr)
 {
 	if (!str)
@@ -113,7 +113,7 @@ static char	*ft_word_into_array(
 	return (arr[i]);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	size_t	nb_words;
 	size_t	i;

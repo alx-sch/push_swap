@@ -6,7 +6,7 @@
 #    By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 11:41:06 by aschenk           #+#    #+#              #
-#    Updated: 2024/02/15 19:34:01 by aschenk          ###   ########.fr        #
+#    Updated: 2024/02/16 17:44:56 by aschenk          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ clean:
 fclean:	clean
 	@rm -f $(NAME)
 	@rm -rf ../../obj/libft
-	@echo "Library removed."
+	@echo "Libft library removed."
 	@$(eval SRC_NUM := 0)
 
 # Target 're' depends on 'fclean' and 'all', rebuilding the project from scratch.

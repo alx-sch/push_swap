@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:49:02 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/16 17:32:08 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 21:06:14 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,22 @@
 #include "push_swap.h"
 
 //	FILE
-int		*check_args(int argc, char **argv);
+int		*check_and_get_args(int argc, char **argv, t_stacks *stacks);
 char	*concatenate_args(int argc, char **argv);
 
-//	libft
-char	*ft_strjoin(char const *s1, char const *s2);
-char	**ft_split(char const *s, char c);
-int		ft_atoi(const char *nptr);
-void	*ft_calloc(size_t nmemb, size_t size);
+//	arg_check_1.c
+bool	is_valid_int_str(const char *str);
 
 //	utils.c
 void	free_arr(char **array);
 int		count_tokens_in_str(char *string);
-void	exit_free_stacks(int exit_code, const char *error_message,
-			t_stacks *stacks);
+void	exit_free_stacks(int exit_code, char *error_message, t_stacks *stacks);
 
-//	arg_check_1.c
-bool	is_valid_int_str(const char *str);
+//	libft
+char	*ft_strjoin(const char *s1, const char *s2);
+char	**ft_split(const char *s, char c);
+int		ft_atoi(const char *nptr);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++
@@ -91,7 +90,7 @@ char	*concatenate_args(int argc, char **argv)
 }
 
 //	Parses a string representing integer values into an array of integers.
-static int	*parse_str_to_int_arr(const char *str, size_t num_tokens)
+static int	*parse_str_to_int_arr(const char *str, const size_t num_tokens)
 {
 	char	**tokens;
 	size_t	i;
@@ -117,7 +116,7 @@ static int	*parse_str_to_int_arr(const char *str, size_t num_tokens)
 }
 
 //	Checks if there are any duplicates in an array of integers.
-static bool	has_duplicates(int *array, size_t length)
+static bool	has_duplicates(const int *array, const size_t length)
 {
 	size_t	i;
 	size_t	j;

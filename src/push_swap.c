@@ -6,22 +6,54 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:55:48 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/16 17:31:55 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 20:31:42 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "push_swap.h"
 
-// arg_check_2.c
-int		*check_and_get_args(int argc, char **argv);
-
 // stacks.c
 void	check_args_init_stacks(int argc, char **argv, t_stacks *stacks);
+
+// sorting.c
+bool	is_stack_sorted(const t_stacks *stacks);
+void	sort_three(t_stacks *stacks);
+
+// opertions.c
+void	sa(t_stacks *stacks);
 
 // utils.c
 void	exit_free_stacks(int exit_code, const char *error_message,
 			t_stacks *stacks);
+
+//	+++++++++++++
+//	++ PROGRAM ++
+//	+++++++++++++
+
+int	main(int argc, char **argv)
+{
+	t_stacks	*stacks;
+
+	stacks = ft_calloc(1, sizeof(t_stacks));
+	if (!stacks)
+	{
+		ft_printf("Error\n");
+		exit(EXIT_MALLOC_FAILURE);
+	}
+	check_args_init_stacks(argc, argv, stacks);
+	if (!is_stack_sorted(stacks))
+	{
+		if (stacks->size_a == 2)
+			sa(stacks);
+		else if (stacks->size_a == 3)
+			sort_three(stacks);
+	}
+	exit_free_stacks(EXIT_SUCCESS, "", stacks);
+}
+
+/*
+// TESTING OPERATIONS
 
 // operations_a.c
 void	sa(t_stacks *stacks);
@@ -36,22 +68,6 @@ void	ss(t_stacks *stacks);
 void	rr(t_stacks *stacks);
 void	rrr(t_stacks *stacks);
 
-//	+++++++++++++
-//	++ PROGRAM ++
-//	+++++++++++++
-
-int	main(int argc, char **argv)
-{
-	t_stacks	*stacks;
-
-	stacks = ft_calloc(1, sizeof(t_stacks));
-	check_args_init_stacks(argc, argv, stacks);
-
-	exit_free_stacks(EXIT_SUCCESS, "", stacks);
-}
-
-// TESTING OPERATIONS
-/*
 void	print_stacks(t_stacks *stacks)
 {
 	size_t	i;

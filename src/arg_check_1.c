@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:56:32 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/16 17:32:00 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 21:05:45 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 //	FILE
 bool	is_valid_int_str(const char *str);
 
-//	libft
-char	**ft_split(char const *s, char c);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		ft_atoi(const char *nptr);
-
 //	utils.c
 void	free_arr(char **array);
+
+//	libft
+char	**ft_split(const char *s, char c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_atoi(const char *nptr);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++

@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:26:16 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/16 17:33:49 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 20:32:29 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,23 @@
 // FILE
 void	check_args_init_stacks(int argc, char **argv, t_stacks *stacks);
 
-// libft
-void	*ft_calloc(size_t nmemb, size_t size);
+// arg_check_2.c
+int		*check_and_get_args(int argc, char **argv,
+			t_stacks *stacks);
+
+// sorting.c
+
 
 // utils.c
 int		count_args(int argc, char **argv);
 void	exit_free_stacks(int exit_code, const char *error_message,
 			t_stacks *stacks);
 
-// arg_check_2.c
-int		*check_and_get_args(int argc, char **argv);
+// libft
+void	*ft_calloc(size_t nmemb, size_t size);
 
 // sorting.c
-bool	is_sorted(int	*array, size_t size);
+//void	mini_sort(t_stacks *stacks, int	*array, size_t size);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++
@@ -47,8 +51,9 @@ static void	init_stacks(t_stacks *stacks, int *stack_a, size_t size)
 	stacks->stack_b = ft_calloc(size, sizeof(int));
 	stacks->cost_a = ft_calloc(size, sizeof(int));
 	stacks->cost_b = ft_calloc(size, sizeof(int));
-	if (stacks->stack_a == NULL || stacks->stack_b == NULL
-		|| stacks->cost_a == NULL || stacks->cost_b == NULL)
+	stacks->target = ft_calloc(size, sizeof(int));
+	if (!stacks->stack_a || !stacks->stack_b || !stacks->cost_a
+		|| !stacks->cost_b || !stacks->target)
 		exit_free_stacks(EXIT_MALLOC_FAILURE, "Error\n", stacks);
 	while (i < size)
 	{
@@ -66,12 +71,7 @@ void	check_args_init_stacks(int argc, char **argv, t_stacks *stacks)
 	int		*stack_a;
 	size_t	size_stack_a;
 
-	stack_a = check_and_get_args(argc, argv);
+	stack_a = check_and_get_args(argc, argv, stacks);
 	size_stack_a = count_args(argc, argv);
-	if (is_sorted(stack_a, size_stack_a))
-	{
-		free(stack_a);
-		exit_free_stacks(EXIT_SUCCESS, "", stacks);
-	}
 	init_stacks(stacks, stack_a, size_stack_a);
 }

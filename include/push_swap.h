@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:43:13 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/16 17:04:21 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 20:02:03 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,17 @@
 # include <stdbool.h> // bool
 # include <limits.h> // INT_MAX, etc.
 
+//
+//
+// target -> target of stack a elements -> b value
+//
 typedef struct s_stacks
 {
 	size_t	size_a;
 	size_t	size_b;
 	int		*stack_a;
 	int		*stack_b;
+	int		*target;
 	int		*cost_a;
 	int		*cost_b;
 }	t_stacks;

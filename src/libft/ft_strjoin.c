@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 15:02:24 by aschenk           #+#    #+#             */
-/*   Updated: 2023/11/24 19:23:19 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/21 21:01:25 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ft_memcpy(). The newly created string is then returned.
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
 	int		len1;
 	int		len2;
