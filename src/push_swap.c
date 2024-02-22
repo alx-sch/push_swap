@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:55:48 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 16:23:25 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 19:17:28 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	sa(t_stacks *stacks);
 
 // libft
 void	*ft_calloc(size_t nmemb, size_t size);
+int		ft_printf(const char *format, ...);
 
 //	+++++++++++++
 //	++ PROGRAM ++
@@ -62,6 +63,20 @@ void	print_stacks(t_stacks *stacks)
 	while (i < stacks->size_a)
 	{
 		ft_printf("%d ", stacks->cost_a[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nRR A: ");
+	while (i < stacks->size_a)
+	{
+		ft_printf("%d ", stacks->rr_a[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nRRR A: ");
+	while (i < stacks->size_a)
+	{
+		ft_printf("%d ", stacks->rrr_a[i]);
 		i++;
 	}
 	ft_printf("\n\n");

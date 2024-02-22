@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:49:02 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 10:46:24 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 19:12:50 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,11 @@ char	*concatenate_args(int argc, char **argv);
 //	arg_check_1.c
 bool	is_valid_int_str(const char *str);
 
-//	utils.c
+//	arg_utils.c
 void	free_arr(char **array);
 int		count_tokens_in_str(const char *string);
+
+// stack_init.c
 void	exit_free_stacks(int exit_code, const char *err_msg, t_stacks *stacks);
 
 //	libft

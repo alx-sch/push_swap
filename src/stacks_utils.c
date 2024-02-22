@@ -6,9 +6,11 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:26:16 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 14:30:45 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 19:18:06 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// THIS FILE
 
 #include "libft/libft.h"
 #include "push_swap.h"
@@ -16,10 +18,6 @@
 // FILE
 int			find_max_val(const t_stacks *stacks, const char x);
 size_t		find_idx(const t_stacks *stacks, const char x, int value);
-t_stacks	*copy_stacks(const t_stacks *ori);
-
-// stacks_init.c
-void	exit_free_stacks(int exit_code, const char *err_msg, t_stacks *stacks);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++
@@ -91,46 +89,46 @@ size_t	find_idx(const t_stacks *stacks, const char x, int value)
 	return (SIZE_MAX);
 }
 
-static void	copy_stack_entries(const t_stacks *ori, t_stacks *copy)
-{
-	size_t	i;
+// static void	copy_stack_entries(const t_stacks *ori, t_stacks *copy)
+// {
+// 	size_t	i;
 
-	i = 0;
-	while (i < ori->size_a)
-	{
-		copy->target_a[i] = ori->target_a[i];
-		copy->cost_a[i] = ori->cost_a[i];
-		i++;
-	}
-	i = 0;
-	while (i < ori->size_b)
-	{
-		copy->target_b[i] = ori->target_b[i];
-		copy->cost_b[i] = ori->cost_b[i];
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (i < ori->size_a)
+// 	{
+// 		copy->target_a[i] = ori->target_a[i];
+// 		copy->cost_a[i] = ori->cost_a[i];
+// 		i++;
+// 	}
+// 	i = 0;
+// 	while (i < ori->size_b)
+// 	{
+// 		copy->target_b[i] = ori->target_b[i];
+// 		copy->cost_b[i] = ori->cost_b[i];
+// 		i++;
+// 	}
+// }
 
-t_stacks	*copy_stacks(const t_stacks *ori)
-{
-	t_stacks	*copy;
-	size_t		i;
+// t_stacks	*copy_stacks(const t_stacks *ori)
+// {
+// 	t_stacks	*copy;
+// 	size_t		i;
 
-	copy = ft_calloc(1, sizeof(t_stacks));
-	if (!copy)
-	{
-		ft_printf("Error\n");
-		exit(EXIT_MALLOC_FAILURE);
-	}
-	copy->size_a = ori->size_a;
-	copy->size_b = ori->size_b;
-	copy->target_a = ft_calloc(copy->size_a, sizeof(size_t));
-	copy->target_b = ft_calloc(copy->size_b, sizeof(size_t));
-	copy->cost_a = ft_calloc(copy->size_a, sizeof(int));
-	copy->cost_b = ft_calloc(copy->size_b, sizeof(int));
-	if (!copy->target_a || !copy->target_b || !copy->cost_a || !copy->cost_b)
-		exit_free_stacks(EXIT_MALLOC_FAILURE, "Error\n", copy);
-	i = 0;
-	copy_stack_entries(ori, copy);
-	return (copy);
-}
+// 	copy = ft_calloc(1, sizeof(t_stacks));
+// 	if (!copy)
+// 	{
+// 		ft_printf("Error\n");
+// 		exit(EXIT_MALLOC_FAILURE);
+// 	}
+// 	copy->size_a = ori->size_a;
+// 	copy->size_b = ori->size_b;
+// 	copy->target_a = ft_calloc(copy->size_a, sizeof(size_t));
+// 	copy->target_b = ft_calloc(copy->size_b, sizeof(size_t));
+// 	copy->cost_a = ft_calloc(copy->size_a, sizeof(int));
+// 	copy->cost_b = ft_calloc(copy->size_b, sizeof(int));
+// 	if (!copy->target_a || !copy->target_b || !copy->cost_a || !copy->cost_b)
+// 		exit_free_stacks(EXIT_MALLOC_FAILURE, "Error\n", copy);
+// 	i = 0;
+// 	copy_stack_entries(ori, copy);
+// 	return (copy);
+// }

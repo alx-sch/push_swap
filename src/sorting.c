@@ -6,9 +6,11 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:20:37 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 13:12:22 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 19:17:43 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// THIS FILE..
 
 #include "libft/libft.h"
 #include "push_swap.h"
@@ -18,9 +20,11 @@ bool	is_sorted_a(const t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
 void	sort_more_than_three(t_stacks *stacks);
 
-// stacks_sorting.c
+// target.c
 void	find_target_a(t_stacks *stacks);
-void	calc_costs_a(t_stacks *stacks);
+
+// cost_a.c
+void	calc_cost_a(t_stacks *stacks);
 
 // stacks_utils.c
 int		find_max_val(const t_stacks *stacks, const char x);
@@ -79,8 +83,12 @@ void	sort_more_than_three(t_stacks *stacks)
 		pb(stacks);
 	if (stacks->size_a > 3)
 		pb(stacks);
+	if (stacks->size_a > 3)
+		pb(stacks);
+	if (stacks->size_a > 3)
+		pb(stacks);
 	find_target_a(stacks);
-	calc_costs_a(stacks);
+	calc_cost_a(stacks);
 	//while (stacks->size_a > 3)
 }
 

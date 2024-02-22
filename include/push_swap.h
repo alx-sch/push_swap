@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:43:13 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 12:08:16 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 16:54:17 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ typedef struct s_stacks
 	size_t	*target_b;
 	int		*cost_a;
 	int		*cost_b;
+	int		*rr_a;
+	int		*rrr_a;
+	int		*rr_b;
+	int		*rrr_b;
 }	t_stacks;
 
 #endif

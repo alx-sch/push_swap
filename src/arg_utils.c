@@ -1,14 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   arg_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 17:06:47 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/21 21:24:31 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 19:16:26 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// THIS FILE
+//
 
 #include "libft/libft.h"
 #include "push_swap.h"
@@ -23,7 +26,6 @@ char	*concatenate_args(int argc, char **argv);
 
 // libft
 char	**ft_split(const char *s, char c);
-int		ft_printf(const char *format, ...);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++
