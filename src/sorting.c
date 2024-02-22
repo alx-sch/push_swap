@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:20:37 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/21 23:41:55 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 13:12:22 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 #include "push_swap.h"
 
 // FILE
-bool	is_stack_sorted(const t_stacks *stacks);
+bool	is_sorted_a(const t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
+void	sort_more_than_three(t_stacks *stacks);
 
-// sorting_utils.c
+// stacks_sorting.c
 void	find_target_a(t_stacks *stacks);
+void	calc_costs_a(t_stacks *stacks);
 
-// stacks.c
-int		find_max_val(const t_stacks *stacks, char x);
+// stacks_utils.c
+int		find_max_val(const t_stacks *stacks, const char x);
 
 // moves_a.c
 void	sa(t_stacks *stacks);
@@ -31,16 +33,13 @@ void	rra(t_stacks *stacks);
 // moves_b.c
 void	pb(t_stacks *stacks);
 
-// utils.c
-void	exit_free_stacks(int exit_code, char *error_message, t_stacks *stacks);
-
 //	+++++++++++++++
 //	++ FUNCTIONS ++
 //	+++++++++++++++
 
 // Checks if 'stack A' is sorted from smallest to largest.
 // A stack with only one element is also considered 'sorted'.
-bool	is_stack_sorted(const t_stacks *stacks)
+bool	is_sorted_a(const t_stacks *stacks)
 {
 	size_t	i;
 
@@ -76,30 +75,14 @@ void	sort_more_than_three(t_stacks *stacks)
 		pb(stacks);
 	if (stacks->size_a > 3)
 		pb(stacks);
+	if (stacks->size_a > 3)
+		pb(stacks);
+	if (stacks->size_a > 3)
+		pb(stacks);
 	find_target_a(stacks);
+	calc_costs_a(stacks);
 	//while (stacks->size_a > 3)
 }
-
-
-
-
-//void	current_index(t_stack *stacks, char x)
-// {
-// 	int	*stack;
-// 	int	median;
-
-// 	if (x == a)
-// 	{
-// 		stack = stacks->stack_a;
-// 		median = stacks->size_a / 2;
-// 	}
-// 	else if (x == b)
-// 	{
-// 		stack = stacks->stack_a;
-// 		median = stacks->size_b / 2;
-// 	}
-// 	while ()
-// }
 
 
 // 	}

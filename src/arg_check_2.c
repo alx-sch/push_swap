@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:49:02 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/21 21:16:27 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 10:46:24 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool	is_valid_int_str(const char *str);
 //	utils.c
 void	free_arr(char **array);
 int		count_tokens_in_str(const char *string);
-void	exit_free_stacks(int exit_code, char *error_message, t_stacks *stacks);
+void	exit_free_stacks(int exit_code, const char *err_msg, t_stacks *stacks);
 
 //	libft
 char	*ft_strjoin(const char *s1, const char *s2);

@@ -6,24 +6,27 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:55:48 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/21 23:52:07 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 16:23:25 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "push_swap.h"
 
-// stacks.c
+// stacks_init.c
 void	check_args_init_stacks(int argc, char **argv, t_stacks *stacks);
 void	exit_free_stacks(int exit_code, char *error_message, t_stacks *stacks);
 
 // sorting.c
-bool	is_stack_sorted(const t_stacks *stacks);
+bool	is_sorted_a(const t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
 void	sort_more_than_three(t_stacks *stacks);
 
 // moves_a.c
 void	sa(t_stacks *stacks);
+
+// libft
+void	*ft_calloc(size_t nmemb, size_t size);
 
 //	+++++++++++++
 //	++ PROGRAM ++
@@ -48,10 +51,17 @@ void	print_stacks(t_stacks *stacks)
 		i++;
 	}
 	i = 0;
-	ft_printf("\nTarget for A in B: ");
+	ft_printf("\nTarget for A: ");
 	while (i < stacks->size_a)
 	{
 		ft_printf("%d ", stacks->target_a[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nCost for A: ");
+	while (i < stacks->size_a)
+	{
+		ft_printf("%d ", stacks->cost_a[i]);
 		i++;
 	}
 	ft_printf("\n\n");
@@ -69,7 +79,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_MALLOC_FAILURE);
 	}
 	check_args_init_stacks(argc, argv, stacks);
-	if (!is_stack_sorted(stacks))
+	if (!is_sorted_a(stacks))
 	{
 		if (stacks->size_a == 2)
 			sa(stacks);
