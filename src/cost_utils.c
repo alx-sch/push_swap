@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 20:20:21 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 20:48:11 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 21:55:33 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "push_swap.h"
 
 // FILE
+size_t	find_cheapest(const t_stacks *stacks, const char x);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++

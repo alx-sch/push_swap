@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:20:37 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 21:13:48 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 21:54:00 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,8 @@ bool	is_sorted_a(const t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
 void	sort_more_than_three(t_stacks *stacks);
 
-// target.c
-void	find_target_a(t_stacks *stacks);
-
-// cost_a.c
-void	calc_cost_a(t_stacks *stacks);
+// stacks_moves.c
+void	bring_cheapest_to_top(t_stacks *stacks);
 
 // stacks_utils.c
 int		find_max_val(const t_stacks *stacks, const char x);
@@ -79,67 +76,15 @@ void	sort_three(t_stacks *stacks)
 
 void	sort_more_than_three(t_stacks *stacks)
 {
-	size_t	element_to_move;
-
 	if (stacks->size_a > 3)
 		pb(stacks);
 	if (stacks->size_a > 3)
 		pb(stacks);
-	while (stacks->size_a > 3)
-	{
-		find_target_a(stacks);
-		calc_cost_a(stacks);
-		element_to_move = find_cheapest(stacks, 'a');
-	}
-	ft_printf("Element to move: %d\n", element_to_move);
+	if (stacks->size_a > 3)
+		pb(stacks);
+	if (stacks->size_a > 3)
+		pb(stacks);
+	// while (stacks->size_a > 3)
+	// {
+	bring_cheapest_to_top(stacks);
 }
-
-
-
-// 	}
-// 	sort_three(stacks);
-
-// }
-
-
-// {
-// 	bool	exit_success;
-
-// 	exit_success = false;
-// 	if (is_sorted(array, size))
-// 		exit_success = true;
-// 	if ()
-
-
-// }
-
-
-// void	small_sort(t_stacks *stacks)
-// {
-// 	bool	exit_success;
-
-// 	exit_success = false;
-// 	if (is_sorted(stacks))
-// 		exit_success = true;
-// 	else if (stacks->size_a == 2)
-// 	{
-// 		sa(stacks);
-// 		exit_success = true;
-// 	}
-// 	else if (stacks->size_a == 3)
-// 	{
-// 		if (stacks->stack_a[2] == find_max_in_stack_a(stacks))
-// 		{
-// 			sa(stacks);
-// 			exit_success = true;
-// 		}
-
-
-
-// 	}
-// 	if (exit_success)
-// 	{
-// 		free(array);
-// 		exit_free_stacks(EXIT_SUCCESS, "", stacks);
-// 	}
-// }

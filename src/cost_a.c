@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:36:50 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 20:47:45 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 22:06:39 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,18 @@ static void	calc_costs_rrr_a(t_stacks *s)
 	}
 }
 
+// resets 'best strategy' to 0 before checking
 void	calc_cost_a(t_stacks *stacks)
 {
+	size_t	i;
+
+	i = 0;
+	while (i < stacks->size_a)
+	{
+		stacks->rr_a[i] = 0;
+		stacks->rrr_a[i] = 0;
+		i++;
+	}
 	calc_costs_r_a(stacks);
 	calc_costs_rr_a(stacks);
 	calc_costs_rrr_a(stacks);
