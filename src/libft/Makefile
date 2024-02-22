@@ -6,7 +6,7 @@
 #    By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 11:41:06 by aschenk           #+#    #+#              #
-#    Updated: 2024/02/22 19:50:23 by aschenk          ###   ########.fr        #
+#    Updated: 2024/02/22 21:25:05 by aschenk          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,9 @@ SRC_NUM := 0
 # Define ANSI escape codes for colors and styles
 RESET = \033[0m
 BOLD = \033[1m
-GREY = \033[90m
+RED = \033[31;2m
 GREEN = \033[32m
+YELLOW = \033[33m
 
 # Target 'all' is the default target, building library specified by $(NAME).
 all:	$(NAME)
@@ -60,13 +61,13 @@ $(NAME):	$(OBJS)
 clean:
 	@$(eval SRC_NUM := $(words $(wildcard ../../obj/libft/*.o)))
 	@rm -f $(OBJS)
-	@echo "$(BOLD)$(GREY)Object files cleaned."
+	@echo "$(BOLD)$(RED)Object files cleaned."
 
 # Target 'fclean' depends on 'clean' and removes the library as well.
 fclean:	clean
 	@rm -f $(NAME)
 	@rm -rf ../../obj/libft
-	@echo "$(BOLD)$(GREY)Libft library removed.$(RESET)"
+	@echo "$(BOLD)$(RED)Libft library removed.$(RESET)"
 	@$(eval SRC_NUM := 0)
 
 # Target 're' depends on 'fclean' and 'all', rebuilding the project from scratch.

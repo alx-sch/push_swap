@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:20:37 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 19:17:43 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 21:13:48 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ void	rra(t_stacks *stacks);
 
 // moves_b.c
 void	pb(t_stacks *stacks);
+
+
+
+size_t	find_cheapest(const t_stacks *stacks, const char x);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++
@@ -75,22 +79,21 @@ void	sort_three(t_stacks *stacks)
 
 void	sort_more_than_three(t_stacks *stacks)
 {
+	size_t	element_to_move;
+
 	if (stacks->size_a > 3)
 		pb(stacks);
 	if (stacks->size_a > 3)
 		pb(stacks);
-	if (stacks->size_a > 3)
-		pb(stacks);
-	if (stacks->size_a > 3)
-		pb(stacks);
-	if (stacks->size_a > 3)
-		pb(stacks);
-	if (stacks->size_a > 3)
-		pb(stacks);
-	find_target_a(stacks);
-	calc_cost_a(stacks);
-	//while (stacks->size_a > 3)
+	while (stacks->size_a > 3)
+	{
+		find_target_a(stacks);
+		calc_cost_a(stacks);
+		element_to_move = find_cheapest(stacks, 'a');
+	}
+	ft_printf("Element to move: %d\n", element_to_move);
 }
+
 
 
 // 	}

@@ -6,11 +6,12 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:42:43 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 19:17:15 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 20:15:39 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// THIS FILE
+// This file contains functions for performing operations simultaneously on
+// both 'stack A' and 'stack B'.
 
 #include "libft/libft.h"
 #include "push_swap.h"

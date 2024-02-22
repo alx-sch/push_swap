@@ -6,7 +6,7 @@
 #    By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 19:39:15 by aschenk           #+#    #+#              #
-#    Updated: 2024/02/22 19:50:21 by aschenk          ###   ########.fr        #
+#    Updated: 2024/02/22 21:23:39 by aschenk          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,9 @@ SRC_NUM := 0
 # Define ANSI escape codes for colors and styles
 RESET = \033[0m
 BOLD = \033[1m
-GREY = \033[90m
+RED = \033[31;2m
 GREEN = \033[32m
+YELLOW = \033[33m
 
 # Target 'all' is the default target, building program specified by $(NAME).
 all:	$(NAME)
@@ -38,7 +39,7 @@ all:	$(NAME)
 # Target $(NAME) depends on object files $(OBJS) and libft library.
 $(NAME):	$(OBJS) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
-	@echo "$(BOLD)$(GREEN)\n$(NAME) successfully compiled.$(RESET)"
+	@echo "$(BOLD)$(YELLOW)\n$(NAME) successfully compiled.$(RESET)"
 
 # Rule to define how to generate object files (%.o) from corresponding
 # source files (%.c). Each .o file depends on the associated .c file and the
@@ -70,12 +71,12 @@ $(LIBFT): $(wildcard $(LIBFT_DIR)/*.c) $(wildcard $(LIBFT_DIR)/*.h)
 # Target to remove all generated files.
 clean:
 	@rm -rf obj
-	@echo "$(BOLD)$(GREY)Object files and libft.a removed.$(RESET)"
+	@echo "$(BOLD)$(RED)Object files and libft.a removed.$(RESET)"
 
 # Target to remove all generated files and the program executable.
 fclean:	clean
 	@rm -f $(NAME)
-	@echo "$(BOLD)$(GREY)$(NAME) removed.$(RESET)"
+	@echo "$(BOLD)$(RED)$(NAME) removed.$(RESET)"
 
 # Target to remove all generated files, the program executable,
 # and then rebuild the program.

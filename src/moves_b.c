@@ -6,11 +6,11 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:42:43 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 19:17:21 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/22 20:14:25 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// THIS FILE
+// This file contains fcts for operations performed on 'stack B' exclusively.
 
 #include "libft/libft.h"
 #include "push_swap.h"
