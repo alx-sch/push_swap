@@ -40,3 +40,11 @@ Struct
 In computer programming, a struct (short for "structure") is a composite data type that groups together a collection of variables under a single name for easier manipulation. Structs are commonly used in languages like C, C++, C#, and many others.
 
 Structs allow you to define your own custom data types by specifying different types of variables and grouping them together. Each variable within a struct is called a member or field. These members can be of any data type, including primitive types like integers or floats, or even other structs.
+
+Examples: Target finding, cost calculation
+
+target:
+Stack A: -3 1 99 7 -2 2 -99 
+Stack B: 4 0 -4 13 
+Target for A in B: 2 1 3 0 2 1 3 
+
