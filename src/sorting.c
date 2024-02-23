@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:20:37 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 21:54:00 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/23 14:34:24 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,8 @@ void	rra(t_stacks *stacks);
 // moves_b.c
 void	pb(t_stacks *stacks);
 
-
-
-size_t	find_cheapest(const t_stacks *stacks, const char x);
+void	find_target_a(t_stacks *stk);
+void	find_target_b(t_stacks *stk);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++
@@ -80,11 +79,12 @@ void	sort_more_than_three(t_stacks *stacks)
 		pb(stacks);
 	if (stacks->size_a > 3)
 		pb(stacks);
-	if (stacks->size_a > 3)
+	while (stacks->size_a > 3)
+	{
+		bring_cheapest_to_top(stacks);
 		pb(stacks);
-	if (stacks->size_a > 3)
-		pb(stacks);
-	// while (stacks->size_a > 3)
-	// {
-	bring_cheapest_to_top(stacks);
+	}
+	sort_three(stacks);
+	find_target_a(stacks);
+	find_target_b(stacks);
 }

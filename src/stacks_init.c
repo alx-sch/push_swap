@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:26:16 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 19:17:57 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/23 14:22:04 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int		count_args(int argc, char **argv);
 // libft
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_printf(const char *format, ...);
-
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++

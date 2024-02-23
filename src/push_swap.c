@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:55:48 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 21:30:56 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/23 15:12:12 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,32 @@ void	print_stacks(t_stacks *stacks)
 	while (i < stacks->size_a)
 	{
 		ft_printf("%d ", stacks->rrr_a[i]);
+		i++;
+	}
+	ft_printf("\nTarget for B: ");
+	while (i < stacks->size_b)
+	{
+		ft_printf("%d ", stacks->target_b[i]);
+		i++;
+	}
+	ft_printf("\nCost for B: ");
+	while (i < stacks->size_b)
+	{
+		ft_printf("%d ", stacks->cost_b[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nRR B: ");
+	while (i < stacks->size_b)
+	{
+		ft_printf("%d ", stacks->rr_b[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nRRR B: ");
+	while (i < stacks->size_b)
+	{
+		ft_printf("%d ", stacks->rrr_b[i]);
 		i++;
 	}
 	ft_printf("\n\n");
