@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:44:09 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/25 13:49:03 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/25 19:59:13 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 #include "push_swap.h"
 
 // FILE
-void	bring_cheapest_to_top(t_stacks *stacks);
+void	r_to_top(t_stacks *stacks, const size_t element_to_move);
+void	move_cheapest_to_top(t_stacks *stacks);
+void	move_b_target_to_top(t_stacks *stacks);
 
 // moves_a.c
 void	ra(t_stacks *stacks);
@@ -31,26 +33,20 @@ void	rr(t_stacks *stacks);
 void	rrr(t_stacks *stacks);
 
 // target.c
-void	find_target_a(t_stacks *stacks);
+void	set_target_a(t_stacks *stk);
+void	set_target_b(t_stacks *stk);
 
-int		find_min_val(const t_stacks *stacks, const char x);
-
-// cost_a.c
-void	calc_cost_a(t_stacks *stacks);
-
-// cost_utils.c
-size_t	find_cheapest(const t_stacks *stacks, const char x);
-
-size_t	find_idx(const t_stacks *stacks, const char x, int value);
-
+// cost.c
+void	calc_cost(t_stacks *stacks);
+size_t	find_cheapest(const t_stacks *stacks);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++
 //	+++++++++++++++
 
-// static void	to_top_r(t_stacks *stacks)
-// {}
-static void	to_top_r(t_stacks *stacks, const size_t element_to_move)
+// Moves a stack 'A' element and it's target to the top of their stacks
+// using only 'single rotations' (ra, rra, rb, rrb).
+void	r_to_top(t_stacks *stacks, const size_t element_to_move)
 {
 	int		a_value;
 	int		b_value;
@@ -79,8 +75,9 @@ static void	to_top_r(t_stacks *stacks, const size_t element_to_move)
 			rrb(stacks);
 }
 
-// move up
-static void	to_top_rr(t_stacks *stacks, const size_t element_to_move)
+// Moves a stack 'A' element and it's target to the top of their stacks
+// using double rotations ('rr') and, if needed, 'single' rotations.
+static void	rr_to_top(t_stacks *stacks, const size_t element_to_move)
 {
 	int	a_value;
 	int	b_value;
@@ -95,8 +92,10 @@ static void	to_top_rr(t_stacks *stacks, const size_t element_to_move)
 		rb(stacks);
 }
 
-// move down
-static void	to_top_rrr(t_stacks *stacks, const size_t element_to_move)
+// Moves a stack 'A' element and it's target to the top of their stacks
+// using double reverse rotations ('rrr') and, if needed,
+// 'single' reverse rotations.
+static void	rrr_to_top(t_stacks *stacks, const size_t element_to_move)
 {
 	int	a_value;
 	int	b_value;
@@ -111,42 +110,42 @@ static void	to_top_rrr(t_stacks *stacks, const size_t element_to_move)
 		rrb(stacks);
 }
 
-
-// brings the cheapest element in a to push to b along with it's target in
-// stack b to the top of respective stacks.
-void	bring_cheapest_to_top(t_stacks *stacks)
+// Moves the cheapest to push element in stack 'A' and it's corresponding target
+// to the top of their respective stacks in the most cost-effective manner.
+void	move_cheapest_to_top(t_stacks *stacks)
 {
 	size_t	element_to_move;
 
-	find_target_a(stacks);
-	calc_cost_a(stacks);
-	element_to_move = find_cheapest(stacks, 'a');
-	//ft_printf("\nMoving A[%d] (%d) ", element_to_move, stacks->stack_a[element_to_move]);
-	//ft_printf("and B[%d] (%d) ", stacks->target_a[element_to_move], stacks->stack_b[stacks->target_a[element_to_move]]);
-	if (stacks->rr_a[element_to_move])
-	{
-		//ft_printf("to top with RR moves.\n");
-		to_top_rr(stacks, element_to_move);
-	}
-	else if (stacks->rrr_a[element_to_move])
-	{
-		//ft_printf("to top with RRR moves.\n");
-		to_top_rrr(stacks, element_to_move);
-	}
+	set_target_a(stacks);
+	calc_cost(stacks);
+	element_to_move = find_cheapest(stacks);
+	if (stacks->rr[element_to_move])
+		rr_to_top(stacks, element_to_move);
+	else if (stacks->rrr[element_to_move])
+		rrr_to_top(stacks, element_to_move);
 	else
-	{
-		//ft_printf("to top with 'single moves' only OR alrdy on top.\n");
-		to_top_r(stacks, element_to_move);
-	}
+		r_to_top(stacks, element_to_move);
 }
 
-void	bring_min_to_top(t_stacks *stacks)
+// Moves the target of the first element in stack 'B' to the top of stack 'A'.
+// This is achieved by either by rotating or reverse-rotating stack 'A',
+// depending on which operation is more cost-efficient.
+void	move_b_target_to_top(t_stacks *stacks)
 {
+	int		a_value;
+	size_t	median_a;
 	size_t	element_to_move;
 
-	element_to_move = find_idx(stacks, 'a', find_min_val(stacks, 'a'));
-	ft_printf("\nFinal rotation to bring 'A' in ascending order.\n");
-	to_top_r(stacks, element_to_move);
-
+	set_target_b(stacks);
+	element_to_move = stacks->target_b;
+	a_value = stacks->stack_a[element_to_move];
+	median_a = stacks->size_a / 2;
+	if (stacks->size_a % 2 == 1)
+		median_a += 1;
+	if (element_to_move < median_a)
+		while (stacks->stack_a[0] != a_value)
+			ra(stacks);
+	else
+		while (stacks->stack_a[0] != a_value)
+			rra(stacks);
 }
-

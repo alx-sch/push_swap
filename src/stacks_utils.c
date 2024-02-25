@@ -6,19 +6,20 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:26:16 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/23 14:28:25 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/25 19:22:26 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// THIS FILE
+// This file implements functions responsible for finding the max. and min.
+// values within the stacks, as well as finding the indices of specific values.
 
 #include "libft/libft.h"
 #include "push_swap.h"
 
 // FILE
-int			find_max_val(const t_stacks *stacks, const char x);
-int			find_min_val(const t_stacks *stacks, const char x);
-size_t		find_idx(const t_stacks *stacks, const char x, int value);
+int		find_max_val(const t_stacks *stacks, const char x);
+int		find_min_val(const t_stacks *stacks, const char x);
+size_t	find_idx(const t_stacks *stacks, const char x, int value);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++

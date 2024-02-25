@@ -6,11 +6,11 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:42:43 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 20:15:45 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/25 17:31:10 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// This file contains fcts for operations performed on 'stack A' exclusively.
+// This file contains functions for operations performed only on 'stack A'.
 
 #include "libft/libft.h"
 #include "push_swap.h"
@@ -28,7 +28,7 @@ int		ft_printf(const char *format, ...);
 //	++ FUNCTIONS ++
 //	+++++++++++++++
 
-// Swap A
+// Swap A.
 // Swap the first 2 elements at the top of 'stack A'.
 // Do nothing if there is only one or no elements.
 void	sa(t_stacks *stacks)
@@ -43,7 +43,7 @@ void	sa(t_stacks *stacks)
 	stacks->stack_a[0] = temp;
 }
 
-// Push A
+// Push A.
 // Take the first element at the top of b and put it at the top of a.
 // Do nothing if b is empty.
 void	pa(t_stacks *stacks)
@@ -70,7 +70,7 @@ void	pa(t_stacks *stacks)
 	stacks->size_b--;
 }
 
-// Rotate A
+// Rotate A.
 // Shift up all elements of 'stack A' by 1.
 // The first element becomes the last one.
 void	ra(t_stacks *stacks)
@@ -91,7 +91,7 @@ void	ra(t_stacks *stacks)
 	stacks->stack_a[stacks->size_a - 1] = temp;
 }
 
-// Reverse Rotate A
+// Reverse Rotate A.
 // Shift down all elements of 'stack A' by 1.
 // The last element becomes the first one.
 void	rra(t_stacks *stacks)

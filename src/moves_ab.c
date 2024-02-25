@@ -6,12 +6,12 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:42:43 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 20:15:39 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/25 17:30:58 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// This file contains functions for performing operations simultaneously on
-// both 'stack A' and 'stack B'.
+// This file contains functions for operations perfomred simultaneously on both
+// 'stack A' and 'stack B'.
 
 #include "libft/libft.h"
 #include "push_swap.h"
@@ -28,7 +28,7 @@ int		ft_printf(const char *format, ...);
 //	++ FUNCTIONS ++
 //	+++++++++++++++
 
-// Swap A & B at the same time
+// Swap A & B at the same time.
 // Swap the first 2 elements at the top of both stacks.
 // Do nothing if there is only one or no elements.
 void	ss(t_stacks *stacks)
@@ -50,7 +50,7 @@ void	ss(t_stacks *stacks)
 	}
 }
 
-// Helper fct for rr() (to keep the line limit)
+// Helper fct for rr() (to keep the line limit).
 static void	rotate_stack(int *stack, size_t size)
 {
 	int		temp;
@@ -68,7 +68,7 @@ static void	rotate_stack(int *stack, size_t size)
 	stack[size - 1] = temp;
 }
 
-// Rotate A & B at the same time
+// Rotate A & B at the same time.
 // Shift up all elements of both stacks by 1.
 // The first elements become the last ones.
 void	rr(t_stacks *stacks)
@@ -78,7 +78,7 @@ void	rr(t_stacks *stacks)
 	rotate_stack(stacks->stack_b, stacks->size_b);
 }
 
-// Helper fct for rrr() (to keep the line limit)
+// Helper fct for rrr() (to keep the line limit).
 static void	r_rotate_stack(int *stack, size_t size)
 {
 	int		temp;
@@ -96,7 +96,7 @@ static void	r_rotate_stack(int *stack, size_t size)
 	stack[0] = temp;
 }
 
-// Reverse Rotate A & B
+// Reverse Rotate A & B.
 // Shift down all elements of both stacks by 1.
 // The last elements become the first ones.
 void	rrr(t_stacks *stacks)
