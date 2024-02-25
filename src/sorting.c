@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:20:37 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/23 14:34:24 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/25 13:39:44 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	sort_more_than_three(t_stacks *stacks);
 
 // stacks_moves.c
 void	bring_cheapest_to_top(t_stacks *stacks);
+void	bring_cheapest_to_top_b(t_stacks *stacks);
 
 // stacks_utils.c
 int		find_max_val(const t_stacks *stacks, const char x);
@@ -33,9 +34,15 @@ void	rra(t_stacks *stacks);
 
 // moves_b.c
 void	pb(t_stacks *stacks);
+void	pa(t_stacks *stacks);
 
 void	find_target_a(t_stacks *stk);
 void	find_target_b(t_stacks *stk);
+
+void	calc_cost_a(t_stacks *stacks);
+void	calc_cost_b(t_stacks *stacks);
+
+void	bring_min_to_top(t_stacks *stacks);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++
@@ -65,6 +72,7 @@ void	sort_three(t_stacks *stacks)
 	int	max_value;
 
 	max_value = find_max_val(stacks, 'a');
+	//ft_printf("\nSorting last three in 'A':\n");
 	if (stacks->stack_a[0] == max_value)
 		ra(stacks);
 	else if (stacks->stack_a[1] == max_value)
@@ -85,6 +93,14 @@ void	sort_more_than_three(t_stacks *stacks)
 		pb(stacks);
 	}
 	sort_three(stacks);
+	while (stacks->size_b > 0)
+	{
+		bring_cheapest_to_top_b(stacks);
+		pa(stacks);
+	}
+	bring_min_to_top(stacks);
 	find_target_a(stacks);
+	calc_cost_a(stacks);
 	find_target_b(stacks);
+	calc_cost_b(stacks);
 }

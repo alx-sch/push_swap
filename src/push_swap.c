@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:55:48 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/23 15:12:12 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/25 13:14:40 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	print_stacks(t_stacks *stacks)
 	size_t	i;
 
 	i = 0;
-	ft_printf("Stack A: ");
+	ft_printf("\n-------------------\n\nStack A: ");
 	while (i < stacks->size_a)
 	{
 		ft_printf("%d ", stacks->stack_a[i]);
@@ -52,7 +52,7 @@ void	print_stacks(t_stacks *stacks)
 		i++;
 	}
 	i = 0;
-	ft_printf("\nTarget for A: ");
+	ft_printf("\n\nTarget for A: ");
 	while (i < stacks->size_a)
 	{
 		ft_printf("%d ", stacks->target_a[i]);
@@ -79,12 +79,14 @@ void	print_stacks(t_stacks *stacks)
 		ft_printf("%d ", stacks->rrr_a[i]);
 		i++;
 	}
-	ft_printf("\nTarget for B: ");
+	i = 0;
+	ft_printf("\n\nTarget for B: ");
 	while (i < stacks->size_b)
 	{
 		ft_printf("%d ", stacks->target_b[i]);
 		i++;
 	}
+	i = 0;
 	ft_printf("\nCost for B: ");
 	while (i < stacks->size_b)
 	{
@@ -108,7 +110,6 @@ void	print_stacks(t_stacks *stacks)
 	ft_printf("\n\n");
 }
 
-#include <stdio.h>
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
