@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:49:02 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/26 18:18:47 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/26 19:03:18 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ static bool	has_duplicates(const int *array, const size_t length)
 //	Prints error message if check fails.
 //	Returns:
 //	-	A string containing concatenated arguments if valid.
+//	-	No parameter given: Exits the program, not displaying anything
 //	-	Otherwise, prints error message and terminates program
 //		with specified exit code.
 static char	*check_args_pre(int argc, char **argv, t_stacks *stacks)

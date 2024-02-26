@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:44:09 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/26 17:08:34 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/26 18:36:31 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,9 +120,8 @@ void	move_cheapest_to_top(t_stacks *stacks)
 	set_target_a(stacks);
 	calc_cost(stacks);
 	element_to_move = find_cheapest(stacks);
-	ft_printf("\n-- Move cheapest 'A' element + target to top--\n");
-	ft_printf("-> 'A[%d]: %d' ", element_to_move, stacks->stack_a[element_to_move]);
-	ft_printf("and its target 'B[%d]: %d'\n\n", stacks->target_a[element_to_move], stacks->stack_b[stacks->target_a[element_to_move]]);
+	ft_printf("\n-- Move 'A' element + target that is cheapest to move to top--\n");
+	ft_printf("-> A[%d] and B[%d] to the top:\n", element_to_move, stacks->target_a[element_to_move]);
 	if (stacks->rr[element_to_move])
 		rr_to_top(stacks, element_to_move);
 	else if (stacks->rrr[element_to_move])

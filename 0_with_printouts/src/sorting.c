@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:20:37 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/26 17:22:00 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/26 18:40:02 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,13 @@ void	sort_more_than_three(t_stacks *stacks)
 	while (stacks->size_a > 3)
 	{
 		move_cheapest_to_top(stacks);
+		print_stacks(stacks);
 		ft_printf("\n-- Pushing 'A' to 'B' --\n\n");
 		pb(stacks);
+		print_stacks(stacks);
 	}
 	sort_three(stacks);
+	print_stacks(stacks);
 	while (stacks->size_b)
 	{
 		move_b_target_to_top(stacks);
