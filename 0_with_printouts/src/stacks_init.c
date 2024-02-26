@@ -6,11 +6,13 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:26:16 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/23 14:22:04 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/26 11:16:58 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// THIS FILE
+// This file contains functions to initalize and free the 't_stacks' structure,
+// containing stack 'A' and 'B' along with additional information (the struct's
+// details are defined in the header file; check there for more info).
 
 #include "libft/libft.h"
 #include "push_swap.h"
@@ -41,13 +43,9 @@ void	exit_free_stacks(int exit_code, const char *err_msg, t_stacks *s)
 	free(s->stack_a);
 	free(s->stack_b);
 	free(s->target_a);
-	free(s->target_b);
-	free(s->cost_a);
-	free(s->cost_b);
-	free(s->rr_a);
-	free(s->rrr_a);
-	free(s->rr_b);
-	free(s->rrr_b);
+	free(s->cost);
+	free(s->rr);
+	free(s->rrr);
 	free(s);
 	ft_printf("%s", err_msg);
 	exit(exit_code);
@@ -64,16 +62,13 @@ static void	init_stacks(t_stacks *s, int *stack_a, size_t size)
 	s->size_b = 0;
 	s->stack_a = ft_calloc(size, sizeof(int));
 	s->stack_b = ft_calloc(size, sizeof(int));
-	s->cost_a = ft_calloc(size, sizeof(int));
-	s->cost_b = ft_calloc(size, sizeof(int));
+	s->cost = ft_calloc(size, sizeof(int));
 	s->target_a = ft_calloc(size, sizeof(size_t));
-	s->target_b = ft_calloc(size, sizeof(size_t));
-	s->rr_a = ft_calloc(size, sizeof(int));
-	s->rrr_a = ft_calloc(size, sizeof(int));
-	s->rr_b = ft_calloc(size, sizeof(int));
-	s->rrr_b = ft_calloc(size, sizeof(int));
-	if (!s->stack_a || !s->stack_b || !s->cost_a || !s->cost_b || !s->target_a
-		|| !s->target_b || !s->rr_a || !s->rrr_a || !s->rr_b || !s->rrr_b)
+	s->target_b = SIZE_MAX;
+	s->rr = ft_calloc(size, sizeof(int));
+	s->rrr = ft_calloc(size, sizeof(int));
+	if (!s->stack_a || !s->stack_b || !s->cost || !s->target_a || !s->rr
+		|| !s->rrr)
 		exit_free_stacks(EXIT_MALLOC_FAILURE, "Error\n", s);
 	while (i < size)
 	{

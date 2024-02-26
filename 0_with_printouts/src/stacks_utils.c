@@ -6,19 +6,20 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:26:16 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/23 14:28:25 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/26 17:38:12 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// THIS FILE
+// This file implements functions responsible for finding the max. and min.
+// values within the stacks, as well as finding the indices of specific values.
 
 #include "libft/libft.h"
 #include "push_swap.h"
 
 // FILE
-int			find_max_val(const t_stacks *stacks, const char x);
-int			find_min_val(const t_stacks *stacks, const char x);
-size_t		find_idx(const t_stacks *stacks, const char x, int value);
+int		find_max_val(const t_stacks *stacks, const char x);
+int		find_min_val(const t_stacks *stacks, const char x);
+size_t	find_idx(const t_stacks *stacks, const char x, int value);
 
 //	+++++++++++++++
 //	++ FUNCTIONS ++
@@ -121,4 +122,54 @@ size_t	find_idx(const t_stacks *stacks, const char x, int value)
 		i++;
 	}
 	return (SIZE_MAX);
+}
+
+void	print_stacks(t_stacks *stacks)
+{
+	size_t	i;
+
+	i = 0;
+	ft_printf("\n## Structure Status ##\n\nStack A: ");
+	while (i < stacks->size_a)
+	{
+		ft_printf("%d ", stacks->stack_a[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nStack B: ");
+	while (i < stacks->size_b)
+	{
+		ft_printf("%d ", stacks->stack_b[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\n\nTarget for A: ");
+	while (i < stacks->size_a)
+	{
+		ft_printf("%d ", stacks->target_a[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nCost for A: ");
+	while (i < stacks->size_a)
+	{
+		ft_printf("%d ", stacks->cost[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nRR A: ");
+	while (i < stacks->size_a)
+	{
+		ft_printf("%d ", stacks->rr[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nRRR A: ");
+	while (i < stacks->size_a)
+	{
+		ft_printf("%d ", stacks->rrr[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\nTarget for B[0]: %d\n", stacks->target_b);
 }

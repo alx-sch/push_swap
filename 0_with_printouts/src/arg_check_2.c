@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:49:02 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/22 19:12:50 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/02/26 18:18:47 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ static char	*check_args_pre(int argc, char **argv, t_stacks *stacks)
 	char	*arg_str;
 
 	if (argc < 2)
-		exit_free_stacks(EXIT_NO_ARGS, "Error\n", stacks);
+		exit_free_stacks(EXIT_SUCCESS, "", stacks);
 	arg_str = concatenate_args(argc, argv);
 	if (!arg_str)
 		exit_free_stacks(EXIT_MALLOC_FAILURE, "Error\n", stacks);
