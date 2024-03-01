@@ -30,7 +30,7 @@ XX
 
 ## Data Structure
 
-A data structure named 't_stacks' was implemented to hold all necessary information needed for sorting. This way, you can pass the 't_stacks' variable as the sole parameter to functions, making the sorting process more streamlined and cohesive.
+A data structure named 't_stacks' was implemented to hold all necessary information needed for sorting. This way, you can pass the 't_stacks' variable as the sole parameter to functions, making the sorting process and coding layout more streamlined and cohesive.
 ```C
 typedef struct s_stacks
 {
