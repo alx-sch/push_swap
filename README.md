@@ -73,7 +73,7 @@ Both arrays and linked lists can be used to store integer values. In an array, e
 
 #### Why Arrays?
 
-In push_swap, the maximum size of the stacks is known: It's the number of passed integer values. Therefore, there is no need to dynamically shrink and grow the stack sizes, as you can easily keep track of them via members in the data structure ('size_a' and 'size_b'). Additionally, managing integer arrays is more straightforward compared to linked lists/nodes, as you can access elements directly using indices. Arrays also offer better cache locality, resulting in faster access times for elements, which drastically increases the performance for larger data inputs (tested via `time ./push_swap [LIST OF 1000 RANDOM INT VALUES]`:
+In push_swap, the maximum size of the stacks is known: It's the number of passed integer values. Therefore, there is no need to dynamically shrink and grow the stack sizes, as you can  keep track of them via members in the data structure ('size_a' and 'size_b'). Additionally, managing arrays is more straightforward compared to linked lists/nodes, as you can access elements directly using indices. Arrays also offer better cache locality, resulting in faster access times for elements, which drastically increases the performance for larger data inputs (tested via `time ./push_swap [LIST OF 1000 RANDOM INT VALUES]`:
 
 - Sorting 1,000 values using linked lists (as implemented [here](https://github.com/ayogun/push_swap)): **13.27s**
 	![turk_linked_lists_1000](https://github.com/alx-sch/42_push_swap/assets/134595144/ecc05b0a-233a-48a1-ad85-21639894a8c1)
