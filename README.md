@@ -54,21 +54,15 @@ Both arrays and linked lists can be used to store integer values. In an array, e
 
 #### Arrays:
 - **Memory Efficiency:** Arrays typically use contiguous memory allocation, which can be more memory-efficient than linked lists because they don't require extra memory for pointers.
-
 - **Cache Locality:** Accessing elements in an array can be faster due to better cache locality. CPUs often utilize caching mechanisms that work more efficiently with contiguous memory accesses.
-
 - **Random Access:** Arrays allow for constant-time random access to elements using indices, which can be advantageous for certain operations.
-
 - **Fixed Size:** Arrays have a fixed size, which means you need to know the maximum size of your data in advance. This limitation can be a drawback if your data size is dynamic or unknown.
 
 #### Linked Lists:
 
 - **Dynamic Size:** Linked lists can dynamically grow and shrink in size, making them more flexible for handling variable-sized data.
-
 - **Dynamic Memory Allocation:** Linked lists allocate memory dynamically as nodes are added, allowing efficient memory usage, especially for large datasets.
-
 - **Insertions and Deletions:** Insertions and deletions at arbitrary positions in a linked list are generally faster than in an array because they involve only pointer manipulation.
-
 - **Memory Overhead:** Linked lists have additional memory overhead due to the pointers linking nodes, which can be a disadvantage if memory usage is a concern.
 
 #### Why Arrays?
