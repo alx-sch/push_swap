@@ -6,7 +6,7 @@
 </p>
 
 Push_swap is a sorting algorithm implementation designed to efficiently sort numbers using two stacks and a fixed set of instructions (push, swap, rotate).
-It takes an unordered stack of integers as input and outputs a series of instructions to sort that stack in ascending order with the least number of moves possible.
+It takes an unordered stack of integers as input and outputs a series of instructions to sort the stack in ascending order with the least number of moves possible.
 
 ## Features
 - **Enhanced Turk Algorithm**: This implementation builds upon the [Turk Algorithm by Ali Ogun](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) and incorporates additional checks for circular sorting, further improving its efficiency.
