@@ -78,7 +78,7 @@ In push_swap, the maximum size of the stacks is known: It's the number of passed
 - Sorting 1,000 values using linked lists (as implemented [here](https://github.com/ayogun/push_swap)): **13.27s**
 	![turk_linked_lists_1000](https://github.com/alx-sch/42_push_swap/assets/134595144/ecc05b0a-233a-48a1-ad85-21639894a8c1)
 
-- Sorting 1,000 values using arrays: **0.26s**  
+- Sorting 1,000 values using arrays: **0.26s** (50 times faster!)
 	![turk_arrays_1000](https://github.com/alx-sch/42_push_swap/assets/134595144/e12940f9-ee67-4888-af23-7d209eddb7cd)
 
 
