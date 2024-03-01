@@ -11,7 +11,7 @@ It takes an unordered stack of integers as input and outputs a series of instruc
 ## Features
 - **Enhanced Turk Algorithm**: This implementation builds upon the [Turk Algorithm by Ali Ogun](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) and incorporates additional checks for circular sorting, further improving its efficiency.
 - **Keeping it fast and simple**: Utilizes integer arrays instead of linked lists for a faster execution of push_swap.
-- **Robust Input Handling:** Accepts various forms of input, such as a mix of strings and numbers (`.
+- **Robust Input Handling:** Accepts various forms of input, such as a mix of strings and numbers.
   
 ## Data Structure
 
