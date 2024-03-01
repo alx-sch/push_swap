@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:55:48 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/25 19:44:05 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/03/01 14:45:55 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 // sorting.c
 bool	is_sorted(const t_stacks *stacks);
+bool	is_circularly_sorted(const t_stacks *stacks);
+void	sort_stack(t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
 void	sort_more_than_three(t_stacks *stacks);
 
@@ -51,6 +53,8 @@ int	main(int argc, char **argv)
 			sa(stacks);
 		else if (stacks->size_a == 3)
 			sort_three(stacks);
+		else if (is_circularly_sorted(stacks))
+			sort_stack(stacks);
 		else
 			sort_more_than_three(stacks);
 	}

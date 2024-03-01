@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:20:37 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/26 18:40:02 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/03/01 14:55:13 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 // FILE
 bool	is_sorted(const t_stacks *stacks);
+bool	is_circularly_sorted(const t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
 void	sort_more_than_three(t_stacks *stacks);
 
@@ -60,13 +61,35 @@ bool	is_sorted(const t_stacks *stacks)
 	return (true);
 }
 
-// Sorts 'stack A' with a size of three in ascending order.
+// Checks if stack 'A' is sorted in ascending order, when considered as
+// a circular array (only rotating needed to get it 'linear' sorted).
+bool	is_circularly_sorted(const t_stacks *stacks)
+{
+	size_t	min_index;
+	size_t	i;
+	size_t	size_a;
+
+	min_index = find_idx(stacks, 'a', find_min_val(stacks, 'a'));
+	i = min_index;
+	size_a = stacks->size_a;
+	while (i != (min_index - 1))
+	{
+		if (stacks->stack_a[i % size_a] > stacks->stack_a[(i + 1) % size_a])
+			return (false);
+		i = (i + 1) % size_a;
+	}
+	return (true);
+}
+
+// Sorts stack 'A' with a size of three in ascending order.
 // First, it rotates the largest element to the bottom if it's not already in
 // that position. Then, it swaps the top two elements, if top > middle.
 void	sort_three(t_stacks *stacks)
 {
 	int	max_value;
 
+	if (stacks->size_a > 3)
+		return ;
 	max_value = find_max_val(stacks, 'a');
 	ft_printf("\n-- Sorting three in 'A' in ascending order --\n\n");
 	if (stacks->stack_a[0] == max_value)
@@ -101,16 +124,34 @@ void	sort_more_than_three(t_stacks *stacks)
 	ft_printf("\n-- Initial pushing of top 'A' elements to 'B' --\n\n");
 	if (stacks->size_a > 3)
 		pb(stacks);
-	if (stacks->size_a > 3)
+	if (is_circularly_sorted(stacks))
+	{
+		ft_printf("\n-- 'A' is circularly sorted --\n\n")
+		sort_stack(stacks);
+		print_stacks(stacks);
+	}
+	if (stacks->size_a > 3 && !(is_sorted(stacks)))
 		pb(stacks);
+	if (is_circularly_sorted(stacks))
+	{
+		ft_printf("\n-- 'A' is circularly sorted --\n\n")
+		sort_stack(stacks);
+		print_stacks(stacks);
+	}
 	print_stacks(stacks);
-	while (stacks->size_a > 3)
+	while (stacks->size_a > 3 && !(is_sorted(stacks)))
 	{
 		move_cheapest_to_top(stacks);
 		print_stacks(stacks);
 		ft_printf("\n-- Pushing 'A' to 'B' --\n\n");
 		pb(stacks);
 		print_stacks(stacks);
+		if (is_circularly_sorted(stacks))
+		{
+			ft_printf("\n-- 'A' is circularly sorted --\n\n")
+			sort_stack(stacks);
+			print_stacks(stacks);
+		}
 	}
 	sort_three(stacks);
 	print_stacks(stacks);
