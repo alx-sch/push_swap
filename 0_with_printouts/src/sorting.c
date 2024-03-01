@@ -6,7 +6,7 @@
 /*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:20:37 by aschenk           #+#    #+#             */
-/*   Updated: 2024/03/01 14:55:13 by aschenk          ###   ########.fr       */
+/*   Updated: 2024/03/01 15:15:09 by aschenk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ bool	is_circularly_sorted(const t_stacks *stacks)
 			return (false);
 		i = (i + 1) % size_a;
 	}
+	ft_printf("\n-- 'A' is circularly sorted --\n\n");
 	return (true);
 }
 
@@ -98,22 +99,26 @@ void	sort_three(t_stacks *stacks)
 		rra(stacks);
 	if (stacks->stack_a[0] > stacks->stack_a[1])
 		sa(stacks);
+	print_stacks(stacks);
 }
 
 // Sorts stack 'A' is ascending order by moving the stack's min. value
 // to the top using 'ra' or 'rra'.
-static void	sort_stack(t_stacks *stacks)
+void	sort_stack(t_stacks *stacks)
 {
 	size_t	element_to_move;
 
 	element_to_move = find_idx(stacks, 'a', find_min_val(stacks, 'a'));
 	ft_printf("\n-- Rotating min. value in 'A' to top --\n\n");
 	r_to_top(stacks, element_to_move);
+	print_stacks(stacks);
 }
 
 // This the main sorting algorithm for 'push_swap'.
-// Step 1: Push all but three elements from stack 'A' to stack 'B' in descending
-// order. This is achieved by repeatedly moving elements to 'B' in the cheapest
+// Step 1: Push elements from stack 'A' to stack 'B' in descending
+// order until only three elements are left in stack 'A' or until stack 'A' is
+// (circularly) sorted.
+// This is achieved by repeatedly moving elements to 'B' in the cheapest
 // possible way.
 // Step 2: Sort the remaining three elements in stack 'A' in ascending order.
 // Step 3: Move all elements from stack 'B' back to stack 'A', resulting in an
@@ -125,20 +130,11 @@ void	sort_more_than_three(t_stacks *stacks)
 	if (stacks->size_a > 3)
 		pb(stacks);
 	if (is_circularly_sorted(stacks))
-	{
-		ft_printf("\n-- 'A' is circularly sorted --\n\n")
 		sort_stack(stacks);
-		print_stacks(stacks);
-	}
 	if (stacks->size_a > 3 && !(is_sorted(stacks)))
 		pb(stacks);
 	if (is_circularly_sorted(stacks))
-	{
-		ft_printf("\n-- 'A' is circularly sorted --\n\n")
 		sort_stack(stacks);
-		print_stacks(stacks);
-	}
-	print_stacks(stacks);
 	while (stacks->size_a > 3 && !(is_sorted(stacks)))
 	{
 		move_cheapest_to_top(stacks);
@@ -148,18 +144,17 @@ void	sort_more_than_three(t_stacks *stacks)
 		print_stacks(stacks);
 		if (is_circularly_sorted(stacks))
 		{
-			ft_printf("\n-- 'A' is circularly sorted --\n\n")
 			sort_stack(stacks);
 			print_stacks(stacks);
 		}
 	}
 	sort_three(stacks);
-	print_stacks(stacks);
 	while (stacks->size_b)
 	{
 		move_b_target_to_top(stacks);
 		ft_printf("\n-- Pushing 'B' to 'A' --\n\n");
 		pa(stacks);
+		print_stacks(stacks);
 	}
 	sort_stack(stacks);
 }
