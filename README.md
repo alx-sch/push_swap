@@ -58,13 +58,13 @@ Both arrays and linked lists can be used to store integer values. In an array, e
 
 #### Why Arrays?
 
-In push_swap, the maximum size of the stacks is known: It's the number of passed integer values. Therefore, there is no need to dynamically shrink and grow the stack sizes, as you can keep track of them via members in the data structure ('size_a' and 'size_b'). Additionally, managing integer arrays is more straightforward compared to linked lists/nodes, as you can access elements directly using indices. Arrays also offer better cache locality, resulting in faster access times for elements, drastically increasing the performance for larger data inputs:
+In push_swap, the maximum size of the stacks is known: It's the number of passed integer values. Therefore, there is no need to dynamically shrink and grow the stack sizes, as you can keep track of them via members in the data structure ('size_a' and 'size_b'). Additionally, managing integer arrays is more straightforward compared to linked lists/nodes, as you can access elements directly using indices. Arrays also offer better cache locality, resulting in faster access times for elements, which drastically increases the performance for larger data inputs (tested via `time ./push_swap [LIST OF 1000 RANDOM INT VALUES]`:
 
-Sorting 1,000 values using linked list (as implemented [here](https://github.com/ayogun/push_swap)): **13.27s** 
-![turk_1000](https://github.com/alx-sch/42_push_swap/assets/134595144/b454167c-fe0d-4b36-9114-b67b93c18c77)
+- Sorting 1,000 values using linked list (as implemented [here](https://github.com/ayogun/push_swap)): **13.27s** 
+	![turk_linked_lists_1000](https://github.com/alx-sch/42_push_swap/assets/134595144/d66bed78-66cd-4d2f-9a12-da7f9776355d)
 
-Sorting 1,000 values using arrays: **0.26s**
-![turk_impro_1000](https://github.com/alx-sch/42_push_swap/assets/134595144/dcc8996e-74d9-4f2f-b178-da2c82b0c339)
+- Sorting 1,000 values using arrays: **0.26s**  
+	![turk_arrays_1000](https://github.com/alx-sch/42_push_swap/assets/134595144/e12940f9-ee67-4888-af23-7d209eddb7cd)
 
 
 
