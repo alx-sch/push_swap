@@ -14,13 +14,18 @@ Push_swap is a sorting algorithm implementation designed to efficiently sort num
 It takes an unordered stack of integers as input and outputs a series of instructions to sort the stack in ascending order, aiming to accomplish this with the least number of moves possible.
 
 ## Features
-- **Enhanced Turk Algorithm**: This implementation builds upon the [Turk Algorithm by Ali Ogun](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) and incorporates additional checks for circular sorting, further improving its efficiency.
-- **Keeping it fast and simple**: Utilizing arrays instead of linked lists for a faster execution of push_swap.
+- **Enhanced Turk Algorithm**: This implementation builds upon the [Turk Algorithm by Ali Ogun](https://medium.com/@ayogun/push-swap-c1f5d2d41e97), further improving its efficiency by incorporating additional checks for circular sorting.
+- **Keeping it fast and simple**: Utilizing arrays instead of linked lists for faster execution and a more streamlined coding layout.
 - **Robust Input Handling:** Accepts various forms of input, including a mix of strings and numbers.
 
 ## Enhanced Turk Algorithm
 
 XX
+
+
+![turk_21](https://github.com/alx-sch/42_push_swap/assets/134595144/134c8fb0-29b6-44c0-9444-7582254bc446)
+
+![TURK_PLUS_7](https://github.com/alx-sch/42_push_swap/assets/134595144/88016e7e-e75c-462c-9954-9e9dbb6e66ff)
 
 
 ## Data Structure
