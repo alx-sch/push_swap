@@ -1,19 +1,47 @@
-# WIP!! WIP!! 42_push_swap WIP!! WIP!!
+42_push_swap
 
 <p align="center">
     <img src="https://github.com/alx-sch/42_push_swap/assets/134595144/795f4f85-b51d-4a21-887a-fcd6369aaa2a"
       alt="libft" />
 </p>
 
-The push_swap project is a sorting algorithm implementation designed to sort numbers with minimal moves using two stacks and a fixed set of instructions (push, swap, rotate). The program takes an unordered stack of integers as input and outputs a series of instructions to sort that stack in ascending order.
+Push_swap is a sorting algorithm implementation designed to efficiently sort numbers using two stacks and a fixed set of instructions (push, swap, rotate).
+It takes an unordered stack of integers as input and outputs a series of instructions to sort that stack in ascending order with the least number of moves possible.
 
 ## Features
-- **Robust Input Validation:** Validates user input for correctness, accepting various representations of integer sequences to ensure robustness.
-- **Instruction Set:** Utilization of a fixed set of stack operations including push, swap, and rotate to manipulate the stacks during sorting.
-- **Sorting Approach:** Experimenting with different sorting techniques while adhering to the specified rules.
-- **Validation Checker:** Implementation of a program to confirm the correctness of push_swap's sorting outputs.
+- **Enhanced Turk Algorithm**: This implementation builds upon the [Turk Algorithm by Ali Ogun](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) and incorporates additional checks for circular sorting, further improving its efficiency.
+- **Keeping it fast and simple**: Utilizes integer arrays instead of linked lists for faster execution of push_swap.
+- **Robust Input Handling:** Accepts various forms of input, such as a mix of strings and numbers.
+  
+## Data Structure
 
-########
+The following data structure named 't_stacks' was implemented to hold all necessary information for sorting management. This way, you can pass the 't_stacks' variable as the sole parameter to functions, making the sorting process more streamlined and cohesive.
+```C
+typedef struct s_stacks
+{
+	size_t    size_a;    // Number of elements in stack 'A'.
+	size_t    size_b;    // Number of elements in stack 'B'.
+	int       *stack_a;  // An array containing the elements of stack 'A'.
+	int       *stack_b;  // An array containing the elements of stack 'B'.
+	size_t    *target_a; // An array storing the target indices in 'B' for each element in 'A'.
+	size_t    target_b;  // The target index in stack 'A' for the first element in stack 'B'.
+	int       *cost;     // An array representing the cost associated with moving respective
+                             // element in stack 'A' and its target in stack 'B' to the top.
+	int       *rr;       // A flag array showing if double rotation(s) is the cheapest way to move
+                             // respective element in stack 'A' and its target in stack 'B' to the top.
+	int       *rrr;      // A flag array showing if double reverse-rotation(s) is the cheapest way to move
+                             // respective element in stack 'A' and its target in stack 'B' to the top.
+}	t_stacks;
+```
+#### Integer Arrays VS. Linked Lists
+
+
+## XXXX
+
+
+
+
+
 
 -- Current version (2024/2/10): push_swap handles argument input and memory allocation correctly; NO sorting (rules) whatsoever though.
 
