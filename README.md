@@ -2,7 +2,12 @@
 
 <p align="center">
     <img src="https://github.com/alx-sch/42_push_swap/assets/134595144/795f4f85-b51d-4a21-887a-fcd6369aaa2a"
-      alt="libft" />
+      alt="push_swap_badge.png" />
+</p>
+
+<p align="center">
+    <img src="https://github.com/alx-sch/42_push_swap/assets/134595144/89df423e-ee54-4232-adeb-77492f19fd20"
+      alt="push_swap_visualization.gif" />
 </p>
 
 Push_swap is a sorting algorithm implementation designed to efficiently sort numbers using two stacks and a fixed set of instructions (push, swap, rotate).
