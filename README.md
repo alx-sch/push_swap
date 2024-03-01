@@ -10,12 +10,12 @@ It takes an unordered stack of integers as input and outputs a series of instruc
 
 ## Features
 - **Enhanced Turk Algorithm**: This implementation builds upon the [Turk Algorithm by Ali Ogun](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) and incorporates additional checks for circular sorting, further improving its efficiency.
-- **Keeping it fast and simple**: Utilizes integer arrays instead of linked lists for faster execution of push_swap.
-- **Robust Input Handling:** Accepts various forms of input, such as a mix of strings and numbers.
+- **Keeping it fast and simple**: Utilizes integer arrays instead of linked lists for a faster execution of push_swap.
+- **Robust Input Handling:** Accepts various forms of input, such as a mix of strings and numbers (`.
   
 ## Data Structure
 
-The following data structure named 't_stacks' was implemented to hold all necessary information for sorting management. This way, you can pass the 't_stacks' variable as the sole parameter to functions, making the sorting process more streamlined and cohesive.
+A data structure named 't_stacks' was implemented to hold all necessary information needed for sorting. This way, you can pass the 't_stacks' variable as the sole parameter to functions, making the sorting process more streamlined and cohesive.
 ```C
 typedef struct s_stacks
 {
@@ -33,7 +33,40 @@ typedef struct s_stacks
                              // respective element in stack 'A' and its target in stack 'B' to the top.
 }	t_stacks;
 ```
-#### Integer Arrays VS. Linked Lists
+### Arrays vs. Linked Lists
+
+Both arrays and linked lists can be used to store integer values. In an array, each value is stored in an element, while in a linked list, each value is stored in a node.  
+
+#### Arrays:
+- **Memory Efficiency:** Arrays typically use contiguous memory allocation, which can be more memory-efficient than linked lists because they don't require extra memory for pointers.
+
+- **Cache Locality:** Accessing elements in an array can be faster due to better cache locality. CPUs often utilize caching mechanisms that work more efficiently with contiguous memory accesses.
+
+- **Random Access:** Arrays allow for constant-time random access to elements using indices, which can be advantageous for certain operations.
+
+- **Fixed Size:** Arrays have a fixed size, which means you need to know the maximum size of your data in advance. This limitation can be a drawback if your data size is dynamic or unknown.
+
+#### Linked Lists:
+
+- **Dynamic Size:** Linked lists can dynamically grow and shrink in size, making them more flexible for handling variable-sized data.
+
+- **Dynamic Memory Allocation:** Linked lists allocate memory dynamically as nodes are added, allowing efficient memory usage, especially for large datasets.
+
+- **Insertions and Deletions:** Insertions and deletions at arbitrary positions in a linked list are generally faster than in an array because they involve only pointer manipulation.
+
+- **Memory Overhead:** Linked lists have additional memory overhead due to the pointers linking nodes, which can be a disadvantage if memory usage is a concern.
+
+#### Why Arrays?
+
+In push_swap, the maximum size of the stacks is known: It's the number of passed integer values. Therefore, there is no need to dynamically shrink and grow the stack sizes, as you can keep track of them via members in the data structure ('size_a' and 'size_b'). Additionally, managing integer arrays is more straightforward compared to linked lists/nodes, as you can access elements directly using indices. Arrays also offer better cache locality, resulting in faster access times for elements, drastically increasing the performance for larger data inputs:
+
+Sorting 1,000 values using linked list (as implemented [here](https://github.com/ayogun/push_swap)): **13.27s** 
+![turk_1000](https://github.com/alx-sch/42_push_swap/assets/134595144/b454167c-fe0d-4b36-9114-b67b93c18c77)
+
+Sorting 1,000 values using arrays: **0.26s**
+![turk_impro_1000](https://github.com/alx-sch/42_push_swap/assets/134595144/dcc8996e-74d9-4f2f-b178-da2c82b0c339)
+
+
 
 
 ## XXXX
