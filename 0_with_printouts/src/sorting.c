@@ -61,8 +61,8 @@ bool	is_sorted(const t_stacks *stacks)
 	return (true);
 }
 
-// Checks if stack 'A' is sorted in ascending order, when considered as
-// a circular array (only rotating needed to get it 'linear' sorted).
+// Checks if stack 'A' is sorted in ascending order, when considered as a 
+// circular array (only rotating needed to bring it into linear sorted order).
 bool	is_circularly_sorted(const t_stacks *stacks)
 {
 	size_t	min_index;
