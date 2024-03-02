@@ -21,9 +21,9 @@ It takes an unordered stack of integers as input and outputs a series of instruc
 
 ## Sorting Algorithm
 
-#### The push_swap Setup
+#### The Setup
 
-XX
+Stacks, operations, comparison 'wheel of fortune'
 
 #### Traditional Sorting Algorithms
 While there are several established sorting algorithms available for tackling push_swap, such as [radix sort](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e) or [insertion sort](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a), I found these approaches less intuitive due to the restrictive set of rules that need to be considered. With only two stacks and a limited set of allowed moves (explained [here](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)), using traditional sorting algorithms often necessitates additional preprocessing steps like normalizing the numbers or dividing them into chunks. They also don't seem to leverage double rotations or double-reverse rotations, which are essential for achieving solutions with the fewest number of operations.
@@ -43,8 +43,8 @@ That's why I opted to seek a solution tailored to the specific requirements of p
 	- In most cases, the target element in stack 'A' is already positioned at the top. However, the target can also be the bottom element in stack 'A', which is then brought to the top with a single reverse-rotation.
 6. **Move Smallest Value to Top**: Rotate stack 'A' either clockwise or counterclockwise until the smallest value is positioned at the top, resulting in a sorted stack in linear order.
 
-
-
+#### Enhancing the Turk Algorithm
+XX 
 
 ![turk_21](https://github.com/alx-sch/42_push_swap/assets/134595144/134c8fb0-29b6-44c0-9444-7582254bc446)
 
