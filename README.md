@@ -17,6 +17,7 @@ It takes an unordered stack of integers as input and outputs a series of instruc
 - **Enhanced Turk Algorithm**: This implementation builds upon the [Turk Algorithm by Ali Ogun](https://medium.com/@ayogun/push-swap-c1f5d2d41e97), further improving its efficiency by incorporating additional checks for circular sorting.
 - **Keeping it fast and simple**: Utilizing arrays instead of linked lists for faster execution and a more streamlined coding layout.
 - **Robust Input Handling:** Accepts various forms of input, including a mix of strings and numbers.
+- **Insightful Diagnostics:** The ['diagnostic mode'](https://github.com/alx-sch/42_push_swap/tree/main/_diagnostic_mode) offers comprehensive insights into the inner workings of the sorting algorithm, providing a detailed description of steps taken to sort a given set of parameters.
 
 ## Enhanced Turk Algorithm
 
