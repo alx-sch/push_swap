@@ -1,13 +1,11 @@
 # WIP # 42_push_swap WIP
 
 <p align="center">
-    <img src="https://github.com/alx-sch/42_push_swap/assets/134595144/795f4f85-b51d-4a21-887a-fcd6369aaa2a"
-      alt="push_swap_badge.png" />
+    <img src="https://github.com/alx-sch/42_push_swap/assets/134595144/795f4f85-b51d-4a21-887a-fcd6369aaa2a" alt="push_swap_badge.png" />
 </p>
 
 <p align="center">
-    <img src="https://github.com/alx-sch/42_push_swap/assets/134595144/89df423e-ee54-4232-adeb-77492f19fd20"
-      alt="push_swap_visualization.gif" />
+    <img src="https://github.com/alx-sch/42_push_swap/assets/134595144/89df423e-ee54-4232-adeb-77492f19fd20" alt="push_swap_visualization.gif" width="500"/ />
 </p>
 
 Push_swap is a sorting algorithm implementation designed to efficiently sort numbers using two stacks and a fixed set of instructions (push, swap, rotate).
@@ -240,3 +238,5 @@ Stack A: -2 0 7 42 88 99
 Stack B: 
 ```
 
+## Acknowledgements
+XXX
