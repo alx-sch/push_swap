@@ -41,19 +41,39 @@ As you can rotate the stacks forward and backwards, I found it helpful to think 
 While there are several established sorting algorithms available for tackling push_swap, such as [radix sort](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e) or [insertion sort](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a), I found these approaches less intuitive due to the restrictive set of rules that need to be considered. With only two stacks and a limited set of allowed moves (explained [here](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)), using traditional sorting algorithms often necessitates additional preprocessing steps like normalizing the numbers or dividing them into chunks. They also don't seem to leverage double rotations or double-reverse rotations, which are essential for achieving solutions with the fewest number of operations.
 
 #### The Turk Algorithm
-That's why I opted to seek a solution tailored to the specific requirements of push_swap.  Ali Ogun describes a simple yet effective approach in [this](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) wonderful article, which he coined the 'Turk Algorithm'. In a nutshell, these are the key steps:
+That's why I opted to seek a solution tailored to the specific requirements of push_swap. Ali Ogun describes a simple yet effective approach in [this](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) wonderful article, which he coined the 'Turk Algorithm'. Let's look at an example to visualize the key steps:    
+
+0. **Stack A `2 4 6 7 1 5 3` :**
+  	<p align="center">
+	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/dcd6cb34-de5d-4c39-ace5-def2068a7066" alt="turk_21" width="300"/>
+ 	</p>
 1. **Initialization:** Begin by pushing the first two elements from stack 'A' to stack 'B'.
+  	<p align="center">
+	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/698b14ac-d498-488d-84ab-758bc210d106" alt="turk_21" width="300"/>
+ 	</p>
 2. **Sorting 'B':** Move elements from stack 'A' to stack 'B' in such a way that 'B' becomes sorted in descending order.
 	- This involves finding suitable targets in 'B' for each element in 'A'.
 	- The target is as close as possible to but smaller than the 'A' element. If no smaller element is found in stack 'B', the largest value in 'B' is selected as the target.
 	- Move the 'A' element and its corresponding target in 'B' to the top of their respective stacks, choosing the pair that requires the fewest operations to reach the top (the 'cheapest' pair).
  	- Push the 'A' element onto its target on top of stack 'B'.
 3. **Reducing 'A' to Three Elements:**  Repeat the sorting process above until only three elements remain in stack 'A'.
+     	<p align="center">
+	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/28b21812-b43d-4da2-956a-4e98c63671e3" alt="turk_21" width="300"/>
+ 	</p>
 4. **Sort 'A'**: Sort the three remaining elements in stack 'A' in ascending order.
+     	<p align="center">
+	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/d8131756-119d-4a41-a84e-caf6135d9e0e" alt="turk_21" width="300"/>
+ 	</p>
 5. **Restoring 'A'**: Push elements from stack 'B' back to stack 'A' while ensuring that the resulting stack 'A' is sorted.
 	- The target in stack 'A' for the top element in stack 'B' is as close as possible but larger. If no larger element is found in stack 'A', the smallest value in 'A' is selected as the target.
-	- In most cases, the target element in stack 'A' is already positioned at the top. However, the target can also be the bottom element in stack 'A', which is then brought to the top with a single reverse-rotation.
+	- In most cases, the target element in stack 'A' is already positioned at the top. However, the target can also be the bottom element in stack 'A', which is then brought to the top with a single reverse-rotation.    
+   <p align="center">
+	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/13d25da7-9a78-47de-ab90-65a8b65a3a39" alt="turk_21" width="300"/>
+ 	</p>
 6. **Move Smallest Value to Top**: Rotate stack 'A' either clockwise or counterclockwise until the smallest value is positioned at the top, resulting in a sorted stack in linear order.
+   <p align="center">
+	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/13e17fe2-1a84-425d-9268-778922fc2f1b" alt="turk_21" width="300"/>
+ 	</p>
 
 #### Enhancing the Turk Algorithm
 Keep in mind that pushing elements from stack 'A' onto stack 'B' until only three elements remain is done because it's simple enough to sort these remaining three values within the stack using the allowed moves. If the stack happens to become sorted in ascending order while pushing elements from 'A' to 'B', there is no need to continue the sorting process, and 'A' can be restored right away. The author of the 'Turk Algorithm' considers this [in his implementation of push_swap](https://github.com/ayogun/push_swap) by checking after each 'pb' move if stack 'A' is sorted linearly (with the first element being the minimum and the last one being the maximum).
@@ -62,12 +82,12 @@ To fine-tune the algorithm even further, I also took into account whether stack 
 
 Let's examine the (admittedly rather contrived) stack 'A' `8 9 1 2 3 4 5 6 7 0`:
 
-- The original 'Turk Algorithm' requires 21 moves to sort stack 'A'.
+- The original 'Turk Algorithm' requires **21 moves** to sort stack 'A' (as of 03/05/24).
   	<p align="center">
 	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/134c8fb0-29b6-44c0-9444-7582254bc446" alt="turk_21" width="400"/>
  	</p>
 
-- The extended 'Turk Algorithm', which includes checks for circular sorting, only requires 7 moves to sort stack 'A'.
+- The extended 'Turk Algorithm', which includes checks for circular sorting, only requires **7 moves** to sort stack 'A'.
   	<p align="center">
 	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/88016e7e-e75c-462c-9954-9e9dbb6e66ff" alt="TURK_PLUS_7" width="400"/>
  	</p>   
