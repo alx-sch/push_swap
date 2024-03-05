@@ -39,7 +39,7 @@ As you can rotate the stacks forward and backwards, I found it helpful to think 
 While there are several established sorting algorithms available for tackling push_swap, such as [radix sort](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e) or [insertion sort](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a), I found these approaches less intuitive due to the restrictive set of rules that need to be considered. With only two stacks and a limited set of allowed moves, using traditional sorting algorithms often need additional preprocessing steps like normalizing the numbers or dividing them into chunks. They also don't seem to leverage double rotations or double-reverse rotations, which are essential for achieving solutions with as little operations as possible.
 
 #### The Turk Algorithm
-That's why I opted to seek a solution tailored to the specific requirements of push_swap. Ali Ogun describes a simple yet effective approach in [this](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) wonderful article, which he coined the 'Turk Algorithm'. Let's look at an example to visualize the key steps:    
+That's why I looked into a solution that is tailored to the specific requirements of push_swap. Ali Ogun describes a simple yet effective approach in [this](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) wonderful article, which he coined the 'Turk Algorithm'. Let's look at an example to visualize the key steps:    
 
 0. **Stack 'A' `2 4 6 7 1 5 3`:**
   	<p align="center">
