@@ -54,7 +54,7 @@ That's why I opted to seek a solution tailored to the specific requirements of p
 	- The target is as close as possible to but smaller than the 'A' element. If no smaller element is found in stack 'B', the largest value in 'B' is selected as the target.
 	- Move the 'A' element and its corresponding target in 'B' to the top of their respective stacks, choosing the pair that requires the fewest operations to reach the top (the 'cheapest' pair).
  	- Push the 'A' element onto its target on top of stack 'B'.
-3. **Reducing 'A' to Three Elements:**  Repeat the sorting process above until only three elements remain in stack 'A'.
+3. **Reducing 'A' to 3 Elements:**  Repeat the sorting process above until only three elements remain in stack 'A'.
      	<p align="center">
 	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/28b21812-b43d-4da2-956a-4e98c63671e3" alt="turk_21" width="300"/>
  	</p>
