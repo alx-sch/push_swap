@@ -35,7 +35,7 @@ As you can rotate the stacks forward and backwards, I found it helpful to think 
 - **ra:** Rotate the stack anticlockwise (or up), each number moves one position up, with the first one becoming the last.
 - **ra:** Rotate the stack clockwise (or down), each number moves one position down, with the last one becoming the first.
 - **pa:** The first number of stack 'A' is moved on top of stack 'B'; all other numbers in 'A' move one position up (not shown).
-- **pb:** The first number of stack 'B' is moved on top of stack 'A'; all numbers in 'A' move one position down.
+- **pb:** The first number of stack 'B' is moved on top of stack 'A'; all numbers in 'A' move one position down (not shown).
 
 #### Traditional Sorting Algorithms
 While there are several established sorting algorithms available for tackling push_swap, such as [radix sort](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e) or [insertion sort](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a), I found these approaches less intuitive due to the restrictive set of rules that need to be considered. With only two stacks and a limited set of allowed moves (explained [here](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)), using traditional sorting algorithms often necessitates additional preprocessing steps like normalizing the numbers or dividing them into chunks. They also don't seem to leverage double rotations or double-reverse rotations, which are essential for achieving solutions with the fewest number of operations.
