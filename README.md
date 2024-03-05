@@ -14,7 +14,7 @@ Push_swap is a sorting algorithm implementation designed to efficiently sort num
 It takes an unordered stack of integers as input and outputs a series of instructions to sort the stack in ascending order, aiming to accomplish this with the least number of moves possible.
 
 ## Features
-- **Enhanced Turk Algorithm**: This implementation builds upon the [Turk Algorithm by Ali Ogun](https://medium.com/@ayogun/push-swap-c1f5d2d41e97), further improving its efficiency by incorporating additional checks for circular sorting (full score).
+- **Enhanced Turk Algorithm**: This implementation builds upon the [Turk Algorithm by Ali Ogun](https://medium.com/@ayogun/push-swap-c1f5d2d41e97), further improving its efficiency by incorporating additional checks for circular sorting **(Full Score!)**.
 - **Keeping it fast and simple**: Utilizing arrays instead of linked lists for faster execution and a more streamlined coding layout.
 - **Robust Input Handling:** Accepts various forms of input, including a mix of strings and numbers.
 - **Insightful Diagnostics:** The ['diagnostic mode'](https://github.com/alx-sch/42_push_swap/tree/main/_diagnostic_mode) offers comprehensive insights into the inner workings of the sorting algorithm, providing a detailed description of steps taken to sort a given set of parameters.
@@ -41,7 +41,7 @@ As you can rotate the stacks forward and backwards, I found it helpful to think 
 While there are several established sorting algorithms available for tackling push_swap, such as [radix sort](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e) or [insertion sort](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a), I found these approaches less intuitive due to the restrictive set of rules that need to be considered. With only two stacks and a limited set of allowed moves (explained [here](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)), using traditional sorting algorithms often necessitates additional preprocessing steps like normalizing the numbers or dividing them into chunks. They also don't seem to leverage double rotations or double-reverse rotations, which are essential for achieving solutions with the fewest number of operations.
 
 #### The Turk Algorithm
-That's why I opted to seek a solution tailored to the specific requirements of push_swap.  Ali Ogun describes a simple yet effective approach in [this](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) wonderful article, which he coined the "Turk Algorithm". In a nutshell, these are the key steps:
+That's why I opted to seek a solution tailored to the specific requirements of push_swap.  Ali Ogun describes a simple yet effective approach in [this](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) wonderful article, which he coined the 'Turk Algorithm'. In a nutshell, these are the key steps:
 1. **Initialization:** Begin by pushing the first two elements from stack 'A' to stack 'B'.
 2. **Sorting 'B':** Move elements from stack 'A' to stack 'B' in such a way that 'B' becomes sorted in descending order.
 	- This involves finding suitable targets in 'B' for each element in 'A'.
@@ -56,11 +56,17 @@ That's why I opted to seek a solution tailored to the specific requirements of p
 6. **Move Smallest Value to Top**: Rotate stack 'A' either clockwise or counterclockwise until the smallest value is positioned at the top, resulting in a sorted stack in linear order.
 
 #### Enhancing the Turk Algorithm
-XX 
+Keep in mind that pushing elements from stack 'A' onto stack 'B' until only three elements remain is done because it's simple enough to sort these remaining three values within the stack using the allowed moves. If the stack happens to become sorted in ascending order while pushing elements from 'A' to 'B', there is no need to continue the sorting process, and 'A' can be restored right away. The author of the 'Turk Algorithm' considers this [in his implementation of push_swap](https://github.com/ayogun/push_swap) by checking after each 'pb' move if stack 'A' is sorted linearly (with the first element being the minimum and the last one being the maximum).
 
-![turk_21](https://github.com/alx-sch/42_push_swap/assets/134595144/134c8fb0-29b6-44c0-9444-7582254bc446)
+To fine-tune the algorithm even further, I also took into account whether stack 'A' becomes sorted circularly while pushing, meaning the values are sorted in ascending order, not considering their positions. If so, you can easily bring the minimum value to the top by rotating (forward when the minimum value is in the upper half, backward if it's in the lower half).
 
-![TURK_PLUS_7](https://github.com/alx-sch/42_push_swap/assets/134595144/88016e7e-e75c-462c-9954-9e9dbb6e66ff)
+Let's examine the (admittedly rather contrived) stack 'A' `8 9 1 2 3 4 5 6 7 0`:
+
+- The original 'Turk Algorithm' requires 21 moves to sort stack 'A'.
+	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/134c8fb0-29b6-44c0-9444-7582254bc446" alt="turk_21" width="400"/>
+
+- The extended 'Turk Algorithm', which includes checks for circular sorting, only requires 7 moves to sort stack 'A'.   
+	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/88016e7e-e75c-462c-9954-9e9dbb6e66ff" alt="TURK_PLUS_7" width="400"/>
 
 
 ## Data Structure
