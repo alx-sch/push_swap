@@ -61,8 +61,9 @@ That's why I opted to seek a solution tailored to the specific requirements of p
 
 4. **Sort 'A'**: Sort the three remaining elements in stack 'A' in ascending order.
      	<p align="center">
-	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/d8131756-119d-4a41-a84e-caf6135d9e0e" alt="turk_21" width="300"/>
+	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/871760b9-a199-4f09-b66d-6f4946313a85" alt="turk_21" width="300"/>
  	</p>
+
 5. **Restoring 'A'**: Push elements from stack 'B' back to stack 'A' while ensuring that the resulting stack 'A' is sorted.
 	- The target in stack 'A' for the top element in stack 'B' is as close as possible but larger. If no larger element is found in stack 'A', the smallest value in 'A' is selected as the target.
 	- In most cases, the target element in stack 'A' is already positioned at the top. However, the target can also be the bottom element in stack 'A', which is then brought to the top with a single reverse-rotation.    
