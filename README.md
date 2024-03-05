@@ -76,13 +76,13 @@ That's why I opted to seek a solution tailored to the specific requirements of p
  	</p>
 
 #### Enhancing the Turk Algorithm
-Keep in mind that pushing elements from stack 'A' onto stack 'B' until only three elements remain is done because it's simple enough to sort these remaining values within stack 'A'. If the stack happens to become sorted in ascending order while pushing elements from 'A' to 'B', there is no need to continue the sorting process, and 'A' can be restored right away. The author of the 'Turk Algorithm' considers this [in his implementation of push_swap](https://github.com/ayogun/push_swap) by checking after each 'pb' move if stack 'A' is sorted linearly (with the first element being the minimum and the last one being the maximum).
+Keep in mind that pushing elements from stack 'A' onto stack 'B' until only three elements remain is done because it's simple enough to sort these remaining values within stack 'A'. If the stack happens to become sorted in ascending order while pushing elements from 'A' to 'B', there is no need to continue the sorting process, and 'A' can be restored right away. The author of the 'Turk Algorithm' considers this in his implementation of push_swap  by checking after each 'pb' move if stack 'A' is sorted linearly (with the first element being the minimum and the last one being the maximum).
 
 To fine-tune the algorithm even further, I also took into account whether stack 'A' becomes sorted circularly while pushing, meaning the values are sorted in ascending order, not considering their positions. If so, you can easily bring the minimum value to the top by rotating (forward when the minimum value is in the upper half, backward if it's in the lower half).
 
 Let's examine the (admittedly rather contrived) stack 'A' `8 9 1 2 3 4 5 6 7 0`:
 
-- The original 'Turk Algorithm' requires **21 moves** to sort stack 'A' (as of 03/05/24).
+- The  [original 'Turk Algorithm'](https://github.com/ayogun/push_swap) requires **21 moves** to sort stack 'A' (as of 03/05/24).
   	<p align="center">
 	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/134c8fb0-29b6-44c0-9444-7582254bc446" alt="turk_21" width="400"/>
  	</p>
