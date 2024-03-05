@@ -63,10 +63,14 @@ To fine-tune the algorithm even further, I also took into account whether stack 
 Let's examine the (admittedly rather contrived) stack 'A' `8 9 1 2 3 4 5 6 7 0`:
 
 - The original 'Turk Algorithm' requires 21 moves to sort stack 'A'.
+  	<p align="center">
 	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/134c8fb0-29b6-44c0-9444-7582254bc446" alt="turk_21" width="400"/>
+ 	</p>
 
-- The extended 'Turk Algorithm', which includes checks for circular sorting, only requires 7 moves to sort stack 'A'.   
+- The extended 'Turk Algorithm', which includes checks for circular sorting, only requires 7 moves to sort stack 'A'.
+  	<p align="center">
 	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/88016e7e-e75c-462c-9954-9e9dbb6e66ff" alt="TURK_PLUS_7" width="400"/>
+ 	</p>   
 
 
 ## Data Structure
