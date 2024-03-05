@@ -43,7 +43,7 @@ While there are several established sorting algorithms available for tackling pu
 #### The Turk Algorithm
 That's why I opted to seek a solution tailored to the specific requirements of push_swap. Ali Ogun describes a simple yet effective approach in [this](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) wonderful article, which he coined the 'Turk Algorithm'. Let's look at an example to visualize the key steps:    
 
-0. **Stack A `2 4 6 7 1 5 3` :**
+0. **Stack 'A' `2 4 6 7 1 5 3`:**
   	<p align="center">
 	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/dcd6cb34-de5d-4c39-ace5-def2068a7066" alt="turk_21" width="300"/>
  	</p>
@@ -60,6 +60,7 @@ That's why I opted to seek a solution tailored to the specific requirements of p
      	<p align="center">
 	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/28b21812-b43d-4da2-956a-4e98c63671e3" alt="turk_21" width="300"/>
  	</p>
+
 4. **Sort 'A'**: Sort the three remaining elements in stack 'A' in ascending order.
      	<p align="center">
 	<img src="https://github.com/alx-sch/42_push_swap/assets/134595144/d8131756-119d-4a41-a84e-caf6135d9e0e" alt="turk_21" width="300"/>
@@ -141,46 +142,101 @@ Both arrays and linked lists can be used to store integer values. In an array, e
 	- Sorting 1,000 values using arrays: **0.26s** (50 times faster!)
 	![turk_arrays_1000](https://github.com/alx-sch/42_push_swap/assets/134595144/e12940f9-ee67-4888-af23-7d209eddb7cd)
 
+## Input Handling
+This push_swap implementation is designed to accept inputs in various forms, for example:
+- Integers with one optional sign and leading zeroes (+0 and -0 is accepted): `./push_swap 42 -2 +0 007 +00099`
+- Integers in a string: `./push_swap "42 -2 0 7 99"`
+- A mix of integers and integer strings: `./push_swap "42 -2" 0 7 "99 88"`
 
+The last feature is achieved by first concatenating every parameter with a space delimiter into a single string (using [ft_strjoin](https://github.com/alx-sch/42_libft)) and then splitting this string up using space as the delimiter, resulting in a char array of integer values (using [ft_split](https://github.com/alx-sch/42_libft)).
 
+## Diagnostic Mode
 
-## XXXX
+Throughout the project, I used printouts to check for issues and to understand how the sorting functions handle any given stack 'A'. This  ['diagnostic mode'](https://github.com/alx-sch/42_push_swap/tree/main/_diagnostic_mode) provides additional information, such as the status of the data structure and cost calculations, which might help in understanding the algorithm better.
 
+Below, find an excerpt of such a diagnostic printout (slightly edited and commented):
+```bash
+>$ ./push_swap 42 -2 0 7 99 88  
 
+## Structure Status ## (all values as initialized)
+Stack A: 42 -2 0 7 99 88 
+Stack B: 
 
+Target for A: 0 0 0 0 0 0 
+Cost for A: 0 0 0 0 0 0 
+RR A: 0 0 0 0 0 0 
+RRR A: 0 0 0 0 0 0 
+Target for B[0]: -1
 
+# [...]
 
+-- Calculating Costs to move 'A' elements and their targets to top --
+Only using R moves:
+A[0] to top (RA): 0 + B[0] to top (RB): 0 = 0 moves needed
+A[1] to top (RA): 1 + B[0] to top (RB): 0 = 1 moves needed
+A[2] to top (RRA): 2 + B[1] to top (RRB): 1 = 3 moves needed
+A[3] to top (RRA): 1 + B[1] to top (RRB): 1 = 2 moves needed
 
--- Current version (2024/2/10): push_swap handles argument input and memory allocation correctly; NO sorting (rules) whatsoever though.
+Using RR moves:
+A[0]: B[0] to top (RR): 0 + A[0] to top (RA): 0 = 0 moves needed
+A[1]: B[0] to top (RR): 0 + A[1] to top (RA): 1 = 1 moves needed
+A[2]: B[1] to top (RR): 1 + A[2] to top (RA): 1 = 2 moves needed
+A[2]: It is cheaper to move this element and its target with RR than with R!
+A[3]: B[1] to top (RR): 1 + A[3] to top (RA): 2 = 3 moves needed
 
-Valid input for the push_swap program:
--	Integers with one optional sign ('+'/'-') followed by digits, within the range of 'int' data type.
--	Integers must not be duplicates.
--	Strings: If values are separated by one or more space characters.
--	Mix of strings and integers.
--	Leading zeroes before numbers are allowed.
+Using RRR moves:
+A[0]: B[0] to top (RRR): 2 + A[0] to top (RRA): 2 = 4 moves needed
+A[1]: B[0] to top (RRR): 2 + A[1] to top (RRA): 1 = 3 moves needed
+A[2]: B[1] to top (RRR): 1 + A[2] to top (RRA): 1 = 2 moves needed
+A[3]: B[1] to top (RRR): 1 + A[3] to top (RRA): 0 = 1 moves needed
+A[3]: It is cheaper to move this element and its target with RRR than with R or RR!
 
-Examples of valid input:
--	`./push_swap 42 -2 +0`
--	`./push_swap 1 "42 -2" 2 "5 6"`
--	`./push_swap 00042 -05`
+# [...]
 
-Invalid input:
--	Floats or non-integer numeric values (e.g. "4.2" or "2147483650").
--	Special characters, symbols, or more than one sign (e.g. "++42").
--	Duplicates (e.g. `./push_swap 00042 +42`).
--	Incorrectly formatted numbers (e.g., "1a" or "42-").
+-- Setting target for B[0] element --
+Finding Target for B[0]: 42
+A[0]: 42 < -2; target: A[-1] # The min. value is chosen as the target if no larger one is found.
+A[1]: 42 < 0; target: A[-1]
+A[2]: 42 < 7; target: A[-1]
+A[3]: 42 < 88; target: A[3]
+A[4]: 42 < 99; target: A[3]
+Target for B[0]: 42 is A[3]: 88
 
-Struct
+## Structure Status ##
+Stack A: -2 0 7 88 99 
+Stack B: 42 
 
-In computer programming, a struct (short for "structure") is a composite data type that groups together a collection of variables under a single name for easier manipulation. Structs are commonly used in languages like C, C++, C#, and many others.
+Target for A: 0 0 1 1 0 
+Cost for A: 0 1 2 1 0 
+RR A: 0 0 1 0 0 
+RRR A: 0 0 0 1 0 
+Target for B[0]: 3
 
-Structs allow you to define your own custom data types by specifying different types of variables and grouping them together. Each variable within a struct is called a member or field. These members can be of any data type, including primitive types like integers or floats, or even other structs.
+-- Moving B[0] target to top --
+-> A[3]: 88
+rra
+rra
 
-Examples: Target finding, cost calculation
+## Structure Status ##
+Stack A: 88 99 -2 0 7
+Stack A: -2 0 7 88 99 
+Stack B: 42 
 
-target:
-Stack A: -3 1 99 7 -2 2 -99 
-Stack B: 4 0 -4 13 
-Target for A in B: 2 1 3 0 2 1 3 
+-- Pushing 'B' to 'A' --
+pa
+
+## Structure Status ##
+Stack A: 42 88 99 -2 0 7 
+Stack B: 
+
+-- Rotating min. value in 'A' to top --
+
+rra
+rra
+rra
+
+## Structure Status ##
+Stack A: -2 0 7 42 88 99 
+Stack B: 
+```
 
