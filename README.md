@@ -155,7 +155,7 @@ Throughout the project, I used printouts to check for issues and to understand h
 
 Below, find an excerpt of such a diagnostic printout (slightly edited and commented):
 ```bash
->$ ./push_swap 42 -2 0 7 99 88  
+$> ./push_swap 42 -2 0 7 99 88  
 
 ## Structure Status ## (all values as initialized)
 Stack A: 42 -2 0 7 99 88 
