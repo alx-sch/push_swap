@@ -151,7 +151,7 @@ The last feature is achieved by first concatenating every parameter with a space
 
 ## Diagnostic Mode
 
-Throughout the project, I used printouts to check for issues and to understand how the sorting functions handle any given stack 'A'. This  ['diagnostic mode'](https://github.com/alx-sch/42_push_swap/tree/main/_diagnostic_mode) provides additional information, such as the status of the [data structure](https://github.com/alx-sch/42_push_swap/blob/main/README.md#data-structure) and cost calculations, which might help in understanding the algorithm better.
+Throughout the project, I used printouts to check for issues and to understand how the sorting functions handle any given stack 'A'. The ['diagnostic mode'](https://github.com/alx-sch/42_push_swap/tree/main/_diagnostic_mode) provides additional information via printouts, such as the status of the [data structure](https://github.com/alx-sch/42_push_swap/blob/main/README.md#data-structure) and cost calculations, which might help in understanding the algorithm better.
 
 Below, find an excerpt of such a diagnostic printout (slightly edited and commented):
 ```bash
