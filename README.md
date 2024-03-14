@@ -240,6 +240,6 @@ Stack B:
 ```
 
 ## Acknowledgements
-- A special thanks to [Ali Ogun](https://github.com/ayogun), whose 'Turk Algorithm' served as the starting point for the sorting logic. You can find his repository [here](https://github.com/ayogun/push_swap).
+- Special thanks to [Ali Ogun](https://github.com/ayogun), whose 'Turk Algorithm' served as the starting point for my sorting logic. You can find his repository [here](https://github.com/ayogun/push_swap).
 - Ali also provides the project badges, which are retrieved from [this repository](https://github.com/ayogun/42-project-badges).
 - Visualizations were created using the [push_swap_visualizer](https://github.com/o-reo/push_swap_visualizer) by Emmanuel Ruaud.
