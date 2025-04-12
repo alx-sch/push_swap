@@ -1,4 +1,4 @@
-# 42_push_swap
+# push_swap
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/alx-sch/42_push_swap/main/.assets/push_swape_badge.png" alt="push_swap_badge.png" />
