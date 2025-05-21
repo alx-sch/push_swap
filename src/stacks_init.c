@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   stacks_init.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 12:26:16 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/25 20:06:41 by aschenk          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 // This file contains functions to initalize and free the 't_stacks' structure,
 // containing stack 'A' and 'B' along with additional information (the struct's
 // details are defined in the header file; check there for more info).

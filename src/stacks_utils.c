@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   stacks_utils.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 12:26:16 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/25 19:22:26 by aschenk          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 // This file implements functions responsible for finding the max. and min.
 // values within the stacks, as well as finding the indices of specific values.
 

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cost.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 16:36:50 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/26 17:36:42 by aschenk          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 // This file implements functions to calculate the 'cost' (= number of moves
 // needed to bring each stack 'A' element and its target to the top of their
 // stacks). It also contains a function to determine the 'cheapest' stack 'A'

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   arg_check_2.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 16:49:02 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/26 19:03:18 by aschenk          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 //	This file implements a function for validating command-line arguments,
 //	ensuring they represent val   id integer values without duplicates.
 //	It returns an integer array of arguments if the validation is successful.

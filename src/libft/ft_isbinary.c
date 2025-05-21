@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_isbinary.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 19:35:30 by aschenk           #+#    #+#             */
-/*   Updated: 2024/01/20 19:46:18 by aschenk          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 /*
 To handle the reading of binary data in a more controlled way, ft_isbinary()
 checks if the 'stash' contains non-printable characters and NULL terminators not

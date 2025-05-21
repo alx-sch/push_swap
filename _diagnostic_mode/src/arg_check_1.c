@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   arg_check_1.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 11:56:32 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/26 11:08:02 by aschenk          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 //	This file implements a function for validating a string representing
 //	integer values and contains helper functions for this purpose.
 

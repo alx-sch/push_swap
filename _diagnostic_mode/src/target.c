@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   target.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 22:09:00 by aschenk           #+#    #+#             */
-/*   Updated: 2024/02/26 17:22:51 by aschenk          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 // This find contains functions to set the targets for the elements in stack 'A'
 // and 'B'. A target represents the element in the opposite stack that is
 // closest in value (and smaller or larger for a descending or ascending sorting
